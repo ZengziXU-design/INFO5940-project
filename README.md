@@ -1,14 +1,54 @@
-# INFO5940 Project — TEAM 15
+# CourseCompass — Conversational Course Planning for Cornell Students
 
-## Team Members
+**Course:** CS 6158, Fall 2026  
+**AI-driven development methodology:** AWS AI-DLC **v1.0.1**  
+**Coding agent:** OpenAI Codex (using `AGENTS.md` and `.aidlc-rule-details/`)  
+**Product LLM:** OpenAI `gpt-4.1-mini` via the OpenAI API (proposed; team must confirm access and cost before Inception)
 
-- Gangming Zhang
-- Junxiang Gong
-- Shiyu Cheng
-- Zengzi Xu
+## Team
 
-## About
+> **Required before submission:** Replace every team entry with the complete, verified name and Cornell NetID of each member. Do not submit with missing members.
 
-This repository contains the collaborative course project for INFO5940 by TEAM 15.
+| Full name | Cornell NetID |
+| --- | --- |
+| [Team member 1 full name] | [NetID] |
+| [Team member 2 full name] | [NetID] |
+| [Add rows for every teammate] | |
 
-Project details, setup instructions, and usage documentation will be added as the project develops.
+## Project Overview, Problem, and Why an LLM
+
+Choosing a Cornell semester schedule requires more than finding interesting classes. Students must satisfy credit and degree constraints, avoid overlapping meeting times, assess prerequisite eligibility, and consider workload, instructor experience, subject interests, and future goals. Useful information is distributed across the Cornell Class Roster, course descriptions, syllabi, instructor pages, and student discussions. Students currently need to reconcile those sources manually while making trade-offs across an *entire combination* of courses. CourseCompass is a local web application that helps Cornell students explore course options, express their preferences conversationally, and compare feasible semester schedules.
+
+An LLM is useful for translating nuanced, incomplete student requests into structured constraints and preferences. For instance, “I need 12–15 credits, prefer theoretical classes, don't want more than two heavy courses, and would rather keep Fridays free” includes hard and soft requirements that cannot all be handled through keyword search. The LLM asks targeted clarifying questions, extracts preferences in a validated schema, summarizes retrieved course evidence with citations, and explains trade-offs among proposed schedules. Deterministic software—not the LLM—checks credit bounds, meeting-time conflicts, and other supported feasibility constraints and computes schedule combinations.
+
+## Planned LLM Integration
+
+The student talks to a preference-extraction agent, reviews the interpreted profile, and adjusts a small set of weighted criteria: topical/career relevance, personal interest, perceived teaching quality, workload fit, difficulty fit, and timetable convenience. A course-research tool queries Cornell's published course offerings for one selected semester; optional curated evidence links and extracts may be included when permitted. A deterministic schedule optimizer produces three feasible and meaningfully different schedule options. The agent then explains why each option fits the student's needs, labels uncertain review-derived claims, and supports iterative refinements such as “keep my first two classes but make Thursday lighter.” The application must not assert that it has checked enrollment seats or verified degree completion unless those capabilities are explicitly implemented and validated.
+
+## MVP Scope and Feasibility
+
+By **December 16, 2026**, the MVP will support one Cornell semester and a limited set of departments, initially **CS, INFO, and ORIE**, with the exact term selected based on Cornell API availability. Students will enter desired credits, completed prerequisites (self-reported), unavailable times, preferred days/times, topics/career interests, and editable preference weights. The app will retrieve and normalize course/section information, display source-linked course cards, enforce credit and meeting-time rules, and generate up to three distinct course schedules with a weekly calendar. A small permitted/curated dataset of instructor or course feedback may inform *uncertain* teaching/workload signals, but the core recommender will still function without external reviews. Advanced degree audits, automatic enrollment, all-university coverage, live seat guarantees, unrestricted scraping, and highly personalized GPA predictions are out of scope.
+
+The project is structured into independent, testable work packages: Cornell data ingestion, structured preference capture, evidence-backed scoring, constraint-based schedule optimization, and the web conversation/calendar UI. We will test scheduling feasibility exhaustively on small synthetic datasets and with representative Cornell schedule cases; we will also assess preference extraction and conversational revisions using labeled scenarios. A recommendation will distinguish official course facts from community opinions and assumptions. The final demo will show an initial student request, feasible schedule alternatives, and a follow-up request that changes the recommended combinations without silently relaxing constraints.
+
+## Collaboration Plan
+
+The team will meet **twice weekly** for approximately **60 minutes per session**, using in-person sessions when possible and video calls otherwise. We will maintain one shared AI-DLC workflow during Inception: one designated operator runs Codex, while every member participates in the discussion, answers clarification questions, reviews each proposed artifact, and approves or requests changes. The technical lead will review architecture and testing decisions; another member will review user requirements and data-source reliability; all members will review the final user stories, constraints, and MVP scope. Between meetings we will coordinate in a shared group chat, track tasks through GitHub Issues, and use pull requests for substantive changes in Construction. Before approving each AI-DLC gate, the team will confirm that `aidlc-docs/audit.md` and `aidlc-docs/aidlc-state.md` accurately reflect the actual shared process.
+
+## Repository and Workflow
+
+- `docs/vision.md`: product goals, scope, users, and risks.
+- `docs/technical-environment.md`: approved technical stack, architecture, security, tests, and example code.
+- `AGENTS.md` and `.aidlc-rule-details/`: **official AI-DLC v1.0.1 rules** for Codex; install from the versioned AWS release, not from these starter documents.
+- `aidlc-docs/`: **created and maintained by AI-DLC**, including Inception artifacts, audit, and state.
+- Application code (during Construction): at repository root in `src/` and `tests/`, **not** under `aidlc-docs/`.
+
+**Milestone (Nov 24):** Complete Inception through Units Generation, then stop before Construction.  
+**Final (Dec 16):** Complete Construction, test the MVP, and submit the required demonstrations and presentation.
+
+## Authoritative References
+
+- [Cornell Class Roster](https://classes.cornell.edu/)
+- [Cornell University Courses of Study](https://catalog.cornell.edu/)
+- [AWS AI-DLC v1.0.1 release](https://github.com/awslabs/aidlc-workflows/releases/tag/v1.0.1)
+- [AI-DLC v1.0.1 input quickstart](https://github.com/awslabs/aidlc-workflows/blob/v1.0.1/docs/writing-inputs/inputs-quickstart.md)
