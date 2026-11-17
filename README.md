@@ -1,19 +1,20 @@
 # CourseCompass — Conversational Course Planning for Cornell Students
 
-**Course:** CS 6158, Fall 2026  
+**Course:** INFO 5940, Fall 2026  
 **AI-driven development methodology:** AWS AI-DLC **v1.0.1**  
 **Coding agent:** OpenAI Codex (using `AGENTS.md` and `.aidlc-rule-details/`)  
 **Product LLM:** OpenAI `gpt-4.1-mini` via the OpenAI API (proposed; team must confirm access and cost before Inception)
 
 ## Team
 
-> **Required before submission:** Replace every team entry with the complete, verified name and Cornell NetID of each member. Do not submit with missing members.
+**Team 15** — names retained from the existing GitHub README. Cornell NetIDs must be confirmed and filled in before submission.
 
 | Full name | Cornell NetID |
 | --- | --- |
-| [Team member 1 full name] | [NetID] |
-| [Team member 2 full name] | [NetID] |
-| [Add rows for every teammate] | |
+| Gangming Zhang | [Confirm NetID] |
+| Junxiang Gong | [Confirm NetID] |
+| Shiyu Cheng | sc3559 |
+| Zengzi Xu | [Confirm NetID] |
 
 ## Project Overview, Problem, and Why an LLM
 
