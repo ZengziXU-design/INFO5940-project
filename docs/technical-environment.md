@@ -26,7 +26,7 @@
 | Optimization | OR-Tools CP-SAT | Feasible course/section combination search |
 | Data processing | Python standard library; `pandas` only if needed | Normalize records and display tables |
 | Storage | SQLite via standard-library `sqlite3` | Local cache of course records and approved evidence, no account needed |
-| LLM inside product | OpenAI `gpt-4.1-mini` via official Python SDK | Preference parsing, clarification, evidence-based explanations; confirm team API access |
+| LLM inside product | OpenAI `gpt-4.1-mini` via official Python SDK | Preference parsing, clarification, evidence-based explanations; team to confirm access/budget; integration during Construction |
 | Agent orchestration | Small custom finite-state workflow + validated tool calls | Predictable behavior and testability; no need for heavyweight agent platform |
 | Test framework | `pytest`, `pytest-cov`, FastAPI `TestClient` | Unit and integration coverage |
 
@@ -50,12 +50,12 @@ src/coursecompass/
   optimizer/       # CP-SAT constraints and diverse schedule generation
   security/        # input, prompt and provenance guards
   ui/              # Streamlit app
- tests/            # unit, integration, and synthetic scheduling tests
- fixtures/         # synthetic/attributed permitted demo data
- docs/             # vision and technical environment inputs
- aidlc-docs/       # generated and managed ONLY by AI-DLC
- AGENTS.md         # official AI-DLC v1.0.1 Codex rule
- .aidlc-rule-details/  # official AI-DLC v1.0.1 details
+tests/            # unit, integration, and synthetic scheduling tests
+fixtures/         # synthetic/attributed permitted demo data
+docs/             # vision and technical environment inputs
+aidlc-docs/       # generated and managed ONLY by AI-DLC
+AGENTS.md         # official AI-DLC v1.0.1 Codex rule
+.aidlc-rule-details/  # official AI-DLC v1.0.1 details
 ```
 
 Actual Python package files will be created during **Construction**, not before the Nov 24 milestone. The example snippets below are input-document guidance, not runnable code files in the repository yet.
@@ -68,7 +68,7 @@ Actual Python package files will be created during **Construction**, not before 
 
 **Scoring:** Nonnegative editable weights for career/research fit, interest, teaching evidence, workload fit, difficulty fit, and convenience. Normalize their sum to one. Never create unsupported numeric ratings from missing evidence; renormalize over available criteria and surface uncertainty. Optimize whole schedules and penalize excessive combined workload or gaps only when those estimates are grounded. Avoid a raw sum of course scores that unconditionally rewards extra credits: use fixed credit targets or an appropriate normalization.
 
-**Constraint invariants:** total credits within user bounds; no overlapping required meetings; no duplicate course; all requested pinned courses included if eligible; excluded courses absent; chosen sections correspond to the selected semester; mandatory components and unavailable blocks honored. If any information needed to verify feasibility is absent, exclude that candidate or clearly mark it unverified rather than asserting it is feasible.
+**Constraint invariants:** total credits within user bounds; no overlapping required meetings; no duplicate course; user-pinned courses treated as mandatory within the supported scope; unmet or unverified eligibility must be surfaced for clarification or a no-solution response, never handled by silently dropping a pinned course; excluded courses absent; chosen sections correspond to the selected semester; mandatory components and unavailable blocks honored. If any information needed to verify feasibility is absent, exclude that candidate or clearly mark it unverified rather than asserting it is feasible.
 
 ## 6. API Conventions
 

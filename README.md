@@ -3,7 +3,7 @@
 **Course:** INFO 5940, Fall 2026  
 **AI-driven development methodology:** AWS AI-DLC **v1.0.1**  
 **Coding agent:** OpenAI Codex (using `AGENTS.md` and `.aidlc-rule-details/`)  
-**Product LLM:** OpenAI `gpt-4.1-mini` via the OpenAI API (proposed; team must confirm access and cost before Inception)
+**Product LLM:** OpenAI `gpt-4.1-mini` via the OpenAI API (planned; provider/model choice and budget remain subject to team confirmation; a working integration is not required for the mid-semester milestone)
 
 ## Team
 
@@ -24,7 +24,7 @@ An LLM is useful for translating nuanced, incomplete student requests into struc
 
 ## Planned LLM Integration
 
-The student talks to a preference-extraction agent, reviews the interpreted profile, and adjusts a small set of weighted criteria: topical/career relevance, personal interest, perceived teaching quality, workload fit, difficulty fit, and timetable convenience. A course-research tool queries Cornell's published course offerings for one selected semester; optional curated evidence links and extracts may be included when permitted. A deterministic schedule optimizer produces three feasible and meaningfully different schedule options. The agent then explains why each option fits the student's needs, labels uncertain review-derived claims, and supports iterative refinements such as “keep my first two classes but make Thursday lighter.” The application must not assert that it has checked enrollment seats or verified degree completion unless those capabilities are explicitly implemented and validated.
+The student talks to a preference-extraction agent, reviews the interpreted profile, and adjusts a small set of weighted criteria: topical/career relevance, personal interest, perceived teaching quality, workload fit, difficulty fit, and timetable convenience. A course-research tool queries Cornell's published course offerings for one selected semester; optional curated evidence links and extracts may be included when permitted. A deterministic schedule optimizer produces up to three feasible and meaningfully different schedule options, returning fewer when fewer distinct feasible options exist. The agent then explains why each option fits the student's needs, labels uncertain review-derived claims, and supports iterative refinements such as “keep my first two classes but make Thursday lighter.” The application must not assert that it has checked enrollment seats or verified degree completion unless those capabilities are explicitly implemented and validated.
 
 ## MVP Scope and Feasibility
 
@@ -39,13 +39,33 @@ The team will meet **twice weekly** for approximately **60 minutes per session**
 ## Repository and Workflow
 
 - `docs/vision.md`: product goals, scope, users, and risks.
-- `docs/technical-environment.md`: approved technical stack, architecture, security, tests, and example code.
-- `AGENTS.md` and `.aidlc-rule-details/`: **official AI-DLC v1.0.1 rules** for Codex; install from the versioned AWS release, not from these starter documents.
+- `docs/technical-environment.md`: proposed technical baseline, architecture, security, tests, and example code for team review.
+- `AGENTS.md` and `.aidlc-rule-details/`: **official AI-DLC v1.0.1 rules** installed for Codex. `AGENTS.md` is the unmodified official `core-workflow.md`; `.aidlc-rule-details/VERSION` records the source release. [Upstream release](https://github.com/awslabs/aidlc-workflows/releases/tag/v1.0.1).
 - `aidlc-docs/`: **created and maintained by AI-DLC**, including Inception artifacts, audit, and state.
 - Application code (during Construction): at repository root in `src/` and `tests/`, **not** under `aidlc-docs/`.
 
 **Milestone (Nov 24):** Complete Inception through Units Generation, then stop before Construction.  
 **Final (Dec 16):** Complete Construction, test the MVP, and submit the required demonstrations and presentation.
+
+## Mid-semester Workflow Boundary
+
+The course's mid-semester milestone requirements take precedence when choosing AI-DLC stages. The required Inception stages are Requirements Analysis, User Stories, Workflow Planning, Application Design, and Units Generation. Do not omit their required artifacts because the general workflow labels a stage conditional. After the team approves Units Generation, stop before Construction; Operations is not required for this course project.
+
+The files in `docs/` are team-authored inputs. Team members must review and agree to them before starting the shared workflow. Rule installation alone does not establish that the agent loaded the rules or that Inception has begun. Workflow progress and approvals must come from actual shared sessions and be recorded by AI-DLC.
+
+Once the team is ready, start a fresh Codex session in the repository root and use a prompt such as:
+
+```text
+Using AI-DLC v1.0.1, start CourseCompass from docs/vision.md and
+docs/technical-environment.md. Follow the INFO 5940 mid-semester milestone:
+complete Requirements Analysis, User Stories, Workflow Planning,
+Application Design, and Units Generation. Ask the team the necessary
+questions, wait for actual approvals at the required gates, and keep
+aidlc-docs/audit.md and aidlc-docs/aidlc-state.md accurate. After we approve
+Units Generation, stop before Construction. Do not generate application code.
+```
+
+At each approval gate, review the artifacts together and check the audit and state files. Reset context at gates as the course instructs, then resume in the same repository using the state file and relevant artifacts. Do not prefill team decisions or backfill approvals that did not occur. Submit the repository URL on Canvas after committing and pushing all milestone work, and verify the URL opens without signing in.
 
 ## Authoritative References
 
