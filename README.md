@@ -14,7 +14,7 @@
 | Gangming Zhang | gz285 |
 | Junxiang Gong | jg2582 |
 | Shiyu Cheng | sc3559 |
-| Zengzi Xu | [Confirm NetID] |
+| Zengzi Xu | zx377 |
 
 ## Project Overview, Problem, and Why an LLM
 
