@@ -11,7 +11,7 @@
 
 | Full name | Cornell NetID |
 | --- | --- |
-| Gangming Zhang | [Confirm NetID] |
+| Gangming Zhang | gz285 |
 | Junxiang Gong | jg2582 |
 | Shiyu Cheng | sc3559 |
 | Zengzi Xu | [Confirm NetID] |
