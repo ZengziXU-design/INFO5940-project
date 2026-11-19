@@ -1,7 +1,7 @@
 # Vision Document — CourseCompass
 
 **Project type:** New, local-first LLM-integrated web application  
-**Audience:** Cornell students planning a semester  
+**Audience:** Cornell students across majors and degree programs who are planning a semester\
 **Planning horizon:** Inception by November 24, 2026; functional MVP by December 16, 2026
 **Status:** Revised with recorded clarification answers. Team review of this input baseline is pending.
 
@@ -11,19 +11,21 @@ CourseCompass is a conversational course-planning assistant that recommends **co
 
 ## 2. Problem Statement
 
-A student selecting courses must jointly consider credits, meeting times, prerequisites, degree progress, topic fit, instructor experience, assessment style, workload, and individual schedules. Cornell's official roster is authoritative for published course and section details, but qualitative information can be scattered across department sites and student discussions. Optimizing courses one at a time can produce an infeasible or unbalanced schedule once the student combines them.
+A student selecting courses must jointly consider credits, meeting times, prerequisites, degree progress, topic fit, instructor experience, assessment style, workload, and individual schedules. Cornell's catalog and official program pages provide published degree and program requirements. The Cornell Class Roster provides course descriptions and term-specific section details. Qualitative information can be scattered across department sites and student discussions. Optimizing courses one at a time can produce an infeasible or unbalanced schedule once the student combines them.
 
 CourseCompass aims to reduce manual comparison and make trade-offs explicit. The user should be able to explain a goal in ordinary language, inspect or change the criteria inferred by the LLM, and receive *feasible semester combinations* with explanations and source references. It is a decision-support tool, not an official academic advisor or degree-certification service.
 
 ## 3. Target Users and Primary Jobs
 
+CourseCompass serves students across Cornell majors and degree programs. The examples below are organized by planning goals.
+
 | Persona | Need | Example request |
 | --- | --- | --- |
-| Undergraduate CS student | Balance prerequisites, interests, credits, and daily timetable | “I need 12–15 credits, want systems and algorithms, and can't attend class Friday afternoon.” |
-| Student exploring a field | Compare interesting electives without overcommitting | “I want to try ORIE, but prefer project-heavy classes over exams.” |
+| Student planning around program requirements | Use published requirements to identify required courses, then balance prerequisites, interests, credits, and meeting times | “I need to take a course required by my program, reach 12–15 credits, and keep Friday afternoon free.” |
+| Student exploring another field | Compare electives across subjects while managing workload | “I want to try a public policy or design elective that fits around my required courses.” |
 | Research-oriented student | Prioritize technical depth and research relevance | “I want theory-focused classes but not three heavy proof courses together.” |
 
-Users supply completed-course and requirement information. They may identify courses they cannot or do not want to repeat. The user can enter completed courses manually or use optional local text-based PDF import. Confirm extracted course identifiers before use. Scanned PDFs are outside the MVP. The MVP does not authenticate with Cornell or certify graduation.
+Users can look up the published requirements for their program in the applicable catalog or on the official program page, then confirm which requirements to use in their semester plan. Users also supply completed-course information. They may identify courses they cannot or do not want to repeat. The user can enter completed courses manually or use optional local text-based PDF import. Confirm extracted course identifiers before use. Scanned PDFs are outside the MVP. The MVP does not authenticate with Cornell or certify graduation.
 
 ## 4. User Inputs and Preference Categories
 
@@ -70,7 +72,7 @@ In a mature product, CourseCompass could support multiple universities and terms
 
 ## 8. Data and Evidence Policy
 
-Official Cornell roster details take precedence over opinion sources for course identity, credits, instructor assignments, meetings, and availability. Descriptions and syllabi may supplement topics and assignments when accessible. Community comments may inform *qualitative* ratings only where collection and use are permitted, and must include the source, date if available, and an explicit uncertainty indicator. We will never invent instructor ratings or infer a student's likely grade from a single review. Sources requested by the team include the Cornell Class Roster and course websites, with Rate My Professors and Reddit as possible review references. The MVP displays source links and accepts permitted curated or user-supplied evidence. Users can open the source in a browser. Inclusion in the MVP does not depend on automated retrieval from either review site. For a new course, a professor’s official research interests may be described, but they are not evidence of teaching quality or course workload. If a source is unavailable, label missing information and keep the official-course path usable.
+Use [Cornell Programs of Study and Graduate Fields](https://catalog.cornell.edu/programs/) and the corresponding official program pages for published degree and program requirements. Use the [Cornell Class Roster](https://classes.cornell.edu/) for course descriptions, credits, instructors, and sections and meeting times in the selected term. Official course pages and syllabi can supplement topics and assignments. Published program rules inform planning through user-confirmed requirements and do not provide an individual degree audit. Community comments may inform *qualitative* ratings only where collection and use are permitted, and must include the source, date if available, and an explicit uncertainty indicator. We will never invent instructor ratings or infer a student's likely grade from a single review. Sources requested by the team include the Cornell Class Roster and course websites, with Rate My Professors and Reddit as possible review references. The MVP displays source links and accepts permitted curated or user-supplied evidence. Users can open the source in a browser. Inclusion in the MVP does not depend on automated retrieval from either review site. For a new course, a professor’s official research interests may be described, but they are not evidence of teaching quality or course workload. If a source is unavailable, label missing information and keep the official-course path usable.
 
 ## 9. Success Metrics and Acceptance Targets
 

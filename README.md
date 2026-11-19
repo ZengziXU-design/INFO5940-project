@@ -20,7 +20,7 @@
 
 **Input review status:** The draft incorporates the recorded clarification answers. The team’s review of the revised input documents is pending.
 
-Choosing a Cornell semester schedule requires more than finding interesting classes. Students must satisfy credit and degree constraints, avoid overlapping meeting times, assess prerequisite eligibility, and consider workload, instructor experience, subject interests, and future goals. Useful information is distributed across the Cornell Class Roster, course descriptions, syllabi, instructor pages, and student discussions. Students currently need to reconcile those sources manually while making trade-offs across an *entire combination* of courses. CourseCompass is a local web application that helps Cornell students explore course options, express their preferences conversationally, and compare feasible semester schedules.
+Choosing a Cornell semester schedule requires more than finding interesting classes. Students must satisfy credit and degree constraints, avoid overlapping meeting times, assess prerequisite eligibility, and consider workload, instructor experience, subject interests, and future goals. Cornell's official program pages and catalog list published degree requirements. The Class Roster provides course descriptions and term-specific offerings. Syllabi, instructor pages, and student discussions can provide additional context. Students currently need to reconcile those sources manually while making trade-offs across an *entire combination* of courses. CourseCompass is a local web application that helps Cornell students across majors and degree programs explore course options, express their preferences conversationally, and compare feasible semester schedules. Students can consult their official program requirements and confirm which courses or constraints to include in their plan.
 
 An LLM is useful for translating nuanced, incomplete student requests into structured constraints and preferences. For instance, “I need 12–15 credits, prefer theoretical classes, don't want more than two heavy courses, and would rather keep Fridays free” includes hard and soft requirements that cannot all be handled through keyword search. The LLM asks targeted clarifying questions, extracts preferences in a validated schema, summarizes retrieved course evidence with citations, and explains trade-offs among proposed schedules. Deterministic software—not the LLM—checks credit bounds, meeting-time conflicts, and other supported feasibility constraints and computes schedule combinations.
 
@@ -72,6 +72,6 @@ At each approval gate, review the artifacts together and check the audit and sta
 ## Authoritative References
 
 - [Cornell Class Roster](https://classes.cornell.edu/)
-- [Cornell University Courses of Study](https://catalog.cornell.edu/)
+- [Cornell Programs of Study and Graduate Fields](https://catalog.cornell.edu/programs/)
 - [AWS AI-DLC v1.0.1 release](https://github.com/awslabs/aidlc-workflows/releases/tag/v1.0.1)
 - [AI-DLC v1.0.1 input quickstart](https://github.com/awslabs/aidlc-workflows/blob/v1.0.1/docs/writing-inputs/inputs-quickstart.md)

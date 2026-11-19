@@ -37,7 +37,7 @@ The planned inference service is OpenAI gpt-4.1-mini. Construction will verify r
 
 **No cloud infrastructure or hosting is required.** The app runs on a team's laptop. Start the API using Uvicorn on `127.0.0.1:8000`, then the Streamlit UI on `127.0.0.1:8501`. SQLite data and curated fixtures live locally. The app can call a hosted OpenAI model through HTTPS using a user-supplied environment variable. No student Cornell account or university sign-in is needed.
 
-**Allowed external services:** Cornell Class Roster published data (subject to API rate limits and terms), OpenAI API for model inference, and publicly accessible course pages where use is permitted. **Disallowed:** unapproved web scraping, external telemetry, cloud databases, automatic enrollment APIs, and remote upload of student transcripts.
+**Allowed external services:** Cornell Class Roster published data (subject to API rate limits and terms), OpenAI API for model inference, and publicly accessible official Cornell program and course pages where use is permitted. **Disallowed:** unapproved web scraping, external telemetry, cloud databases, automatic enrollment APIs, and remote upload of student transcripts.
 
 ## 4. Proposed Project Structure
 
@@ -175,7 +175,8 @@ def test_overlapping_and_back_to_back_meetings() -> None:
 
 ## 13. Source and Model Configuration Decisions
 
-- Official roster and catalog: https://classes.cornell.edu/ and https://catalog.cornell.edu/
+- [Cornell Class Roster](https://classes.cornell.edu/) provides course descriptions, published offerings, and section details for the selected term.
+- [Cornell Programs of Study and Graduate Fields](https://catalog.cornell.edu/programs/) and corresponding official program pages provide published degree and program requirements. Use them as references for requirements the student confirms. The app checks the supported scheduling constraints for the semester.
 - Coverage targets all accessible subjects in published Cornell terms. Each request uses one chosen term. Historical terms may provide context. Verify actual data coverage during Construction.
 - Preferred inference provider: OpenAI API and model `gpt-4.1-mini`, requiring a team-controlled key; mock all inference for CI/tests.
 - Restrict review data to demonstrably permitted sources; label any manually created illustrative cases as synthetic.
