@@ -7,7 +7,7 @@
 
 ## Team
 
-**Team 15** — names retained from the existing GitHub README. Cornell NetIDs must be confirmed and filled in before submission.
+**Team 15** — member names and NetIDs are listed below; Zengzi Xu’s NetID was supplied in teammate commit `ba84f14`.
 
 | Full name | Cornell NetID |
 | --- | --- |
@@ -17,6 +17,8 @@
 | Zengzi Xu | zx377 |
 
 ## Project Overview, Problem, and Why an LLM
+
+**Input review status:** Draft updated from the user-reported team discussion. Scope and workflow decisions still requiring confirmation are in `aidlc-docs/inception/requirements/requirement-verification-questions.md`; no stage approval is implied.
 
 Choosing a Cornell semester schedule requires more than finding interesting classes. Students must satisfy credit and degree constraints, avoid overlapping meeting times, assess prerequisite eligibility, and consider workload, instructor experience, subject interests, and future goals. Useful information is distributed across the Cornell Class Roster, course descriptions, syllabi, instructor pages, and student discussions. Students currently need to reconcile those sources manually while making trade-offs across an *entire combination* of courses. CourseCompass is a local web application that helps Cornell students explore course options, express their preferences conversationally, and compare feasible semester schedules.
 
@@ -28,13 +30,13 @@ The student talks to a preference-extraction agent, reviews the interpreted prof
 
 ## MVP Scope and Feasibility
 
-By **December 16, 2026**, the MVP will support one Cornell semester and a limited set of departments, initially **CS, INFO, and ORIE**, with the exact term selected based on Cornell API availability. Students will enter desired credits, completed prerequisites (self-reported), unavailable times, preferred days/times, topics/career interests, and editable preference weights. The app will retrieve and normalize course/section information, display source-linked course cards, enforce credit and meeting-time rules, and generate up to three distinct course schedules with a weekly calendar. A small permitted/curated dataset of instructor or course feedback may inform *uncertain* teaching/workload signals, but the core recommender will still function without external reviews. Advanced degree audits, automatic enrollment, all-university coverage, live seat guarantees, unrestricted scraping, and highly personalized GPA predictions are out of scope.
+By **December 16, 2026**, the requested MVP retains **F1–F8** and targets Cornell’s published semesters and all departments/subjects for which data can be obtained. This replaces the earlier CS/INFO/ORIE restriction. Whether this means selecting any one published semester per plan or producing multi-semester plans is pending Q2; data availability and implemented coverage must be made visible rather than guaranteed without verification. Students will enter desired credits, completed prerequisites (self-reported), unavailable times, preferred days/times, topics/career interests, and editable preference weights. The app will retrieve and normalize course/section information, display source-linked course cards, enforce credit and meeting-time rules, and generate up to three distinct course schedules with a weekly calendar. Clicking a course opens a sidebar with its name, description, credits, professor information, review evidence and source links; missing information is labeled. A small permitted/curated dataset of instructor or course feedback may inform *uncertain* teaching/workload signals, but the core recommender will still function without external reviews. Advanced degree audits, automatic enrollment, coverage of other universities, live seat guarantees, unrestricted scraping, and highly personalized GPA predictions are out of scope. A completed-course list is an input; local transcript-file import is a proposal awaiting Q3. Historical-user personalization is awaiting Q4; no usable historical dataset is assumed.
 
 The project is structured into independent, testable work packages: Cornell data ingestion, structured preference capture, evidence-backed scoring, constraint-based schedule optimization, and the web conversation/calendar UI. We will test scheduling feasibility exhaustively on small synthetic datasets and with representative Cornell schedule cases; we will also assess preference extraction and conversational revisions using labeled scenarios. A recommendation will distinguish official course facts from community opinions and assumptions. The final demo will show an initial student request, feasible schedule alternatives, and a follow-up request that changes the recommended combinations without silently relaxing constraints.
 
 ## Collaboration Plan
 
-The team will meet **twice weekly** for approximately **60 minutes per session**, using in-person sessions when possible and video calls otherwise. We will maintain one shared AI-DLC workflow during Inception: one designated operator runs Codex, while every member participates in the discussion, answers clarification questions, reviews each proposed artifact, and approves or requests changes. The technical lead will review architecture and testing decisions; another member will review user requirements and data-source reliability; all members will review the final user stories, constraints, and MVP scope. Between meetings we will coordinate in a shared group chat, track tasks through GitHub Issues, and use pull requests for substantive changes in Construction. Before approving each AI-DLC gate, the team will confirm that `aidlc-docs/audit.md` and `aidlc-docs/aidlc-state.md` accurately reflect the actual shared process.
+All four members participate in operating Codex and reviewing artifacts. The team reports in-person meetings during class and before or after class, and a shared group chat between meetings. Each working session has one active operator while the others discuss and review; operators may rotate, and everyone continues the same AI-DLC state rather than creating independent Inception workflows. Meeting frequency/duration remains for Q7; the earlier twice-weekly/60-minute text was a proposal rather than a confirmed agreement. The final Canvas submission owner will be assigned before submission. GitHub Issues and pull requests remain proposed ways to coordinate Construction. Before each gate approval, the team reviews the documents and checks `aidlc-docs/audit.md` and `aidlc-docs/aidlc-state.md`. No formal milestone submission or stage approval is claimed.
 
 ## Repository and Workflow
 

@@ -3,6 +3,7 @@
 **Status:** Proposed team baseline for AI-DLC Inception; review/approve as a team before beginning workflow.  
 **AI-DLC:** AWS AI-DLC v1.0.1, using OpenAI Codex with versioned rules.  
 **Deployment:** Local-only web application for course demo; hosted LLM API is allowed.
+**Pending baseline:** Q5 confirms the proposed technologies/model; Q3 and Q4 determine transcript and historical-data boundaries. No unanswered choice is treated as approved.
 
 ## 1. Language, Version, and Package Manager
 
@@ -17,9 +18,9 @@
 
 ## 2. Frameworks and Libraries
 
-| Component | Approved technology | Purpose |
+| Component | Proposed technology (pending Q5) | Purpose |
 | --- | --- | --- |
-| Web UI | Streamlit | Chat interaction, preference sliders, comparison, timetable |
+| Web UI | Streamlit | Chat, preference sliders, clickable timetable and course-detail sidebar cards (UI implementation to be validated during Construction) |
 | Local API | FastAPI + Uvicorn | Typed endpoints for planning and preference updates |
 | Data validation | Pydantic v2 | Validate LLM output and normalized Cornell records |
 | Cornell retrieval | `httpx` | HTTP client with timeouts/retries and user-agent |
@@ -30,7 +31,7 @@
 | Agent orchestration | Small custom finite-state workflow + validated tool calls | Predictable behavior and testability; no need for heavyweight agent platform |
 | Test framework | `pytest`, `pytest-cov`, FastAPI `TestClient` | Unit and integration coverage |
 
-The model/provider are proposed, not yet verified in the team's runtime. If the team elects Ollama instead, document the exact model, supported tool-calling/structured-output behavior, hardware requirements, and change consistently in README and this file *before* AI-DLC begins.
+The model/provider are proposed, not yet verified in the team's runtime. If the team elects Ollama instead, document the exact model, supported tool-calling/structured-output behavior, hardware requirements, and update README and this file consistently before the input baseline and downstream requirements are approved.
 
 ## 3. Cloud Provider and Deployment Model
 
@@ -84,7 +85,7 @@ Actual Python package files will be created during **Construction**, not before 
 **Secret management:** Read `OPENAI_API_KEY` from a local `.env` or process environment; `.env`, local SQLite caches containing personal details, and any secrets must be excluded from Git. Provide `.env.example` with variable names only.  
 **Input validation:** Pydantic constrains message length, credit range, course count, subject/term values, and normalized weights; reject unknown tool names/parameters.  
 **Prompt injection:** Treat course descriptions, websites, and reviews as untrusted data; never obey embedded instructions, never allow LLM-generated shell commands, and use allowlisted tool functions only.  
-**Transport/privacy:** Hosted model calls use HTTPS. Do not require student identity, NetID, transcript, or Cornell login. Do not log API keys or full conversations. Provide a clear warning before text is sent to a hosted provider.  
+**Transport/privacy:** Hosted model calls use HTTPS. Do not require student identity, NetID or Cornell login. Manual completed-course input remains available; if Q3 enables transcript files, parse them locally, require confirmation of extracted course IDs and do not send or retain raw transcripts in model calls, audit logs or Git. Do not log API keys or full conversations. Provide a clear warning before text is sent to a hosted provider.
 **Risk baseline:** Follow relevant OWASP ASVS input-validation and secret-handling guidance and OWASP LLM prompt-injection principles, scoped to a local course project.
 
 ## 8. Prohibited Libraries and Patterns
@@ -114,7 +115,7 @@ Actual Python package files will be created during **Construction**, not before 
 | Safety tests | pytest | Reject malicious tool names, oversize input, injection-like source instructions |
 | Manual demo | Scripted 3-case walkthrough | Initial recommendation, weight change, infeasible scenario |
 
-**Targets:** All critical scheduling invariants must pass; at least 80% coverage for deterministic domain/optimizer code, 90% correct critical-field extraction on a labeled set, and reproducible offline test runs. Ruff and pytest must pass before merging.
+**Targets (for review):** All emitted schedules must pass supported hard-constraint checks; output schemas and claimed course facts must be checked; conversational edits must preserve unaffected constraints. Numeric coverage/accuracy and dataset-size targets from the earlier proposal are not reported as team-approved or achieved. Ruff and pytest are proposed Construction checks, not tests already run for this milestone.
 
 ## 10. Example Code — Typical Endpoint
 
@@ -174,7 +175,7 @@ def test_overlapping_and_back_to_back_meetings() -> None:
 ## 13. Source and Model Configuration Decisions
 
 - Official roster and catalog: https://classes.cornell.edu/ and https://catalog.cornell.edu/
-- Initially ingest one semester, CS/INFO/ORIE; check term availability and current schema during Construction.
+- Requested coverage is all data-accessible published Cornell terms and departments/subjects. Q2 determines single-target-term selection versus multi-semester scheduling; expose unsupported/missing data and verify actual coverage during Construction rather than silently restoring the old CS/INFO/ORIE limit.
 - Preferred inference provider: OpenAI API and model `gpt-4.1-mini`, requiring a team-controlled key; mock all inference for CI/tests.
 - Restrict review data to demonstrably permitted sources; label any manually created illustrative cases as synthetic.
 - Always record source provenance, and do not represent estimated course difficulty or quality as verified Cornell information.
