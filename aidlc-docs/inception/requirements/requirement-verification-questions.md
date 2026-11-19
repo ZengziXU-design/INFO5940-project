@@ -1,6 +1,6 @@
 # CourseCompass — Requirements Verification Questions
 
-**状态：等待用户/团队回答，Requirements Analysis 尚未完成。**
+**状态：10 项答复已记录，等待团队确认更新后的输入文档。**
 
 本文件属于 AI-DLC 正式需求澄清，不是额外的会前讨论提纲。依据用户转述的讨论，F1–F8、可调整的六类偏好、最低学分/无时间冲突、未知先修时询问、无解解释，以及可点击课程表和侧栏详情已记录，不重复询问这些已给出的方向。
 
@@ -20,7 +20,7 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：A 更便于将课堂日程与课外工作量分开；这只是建议。
 
-[Answer]:
+[Answer]: A
 
 ## Question 2: 所有学期的规划含义
 
@@ -34,7 +34,7 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：A 控制排课复杂度，也不限制用户选择哪个可用学期；B 会显著增加首版工作量。
 
-[Answer]:
+[Answer]: A
 
 ## Question 3: 成绩单输入的首版范围
 
@@ -48,7 +48,9 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：两种方案都不要求 Cornell 登录；原始成绩单不进入 Git、审计日志或模型请求。A 更接近提出的文件输入想法，B 工作量较小。
 
-[Answer]:
+[Answer]: A
+
+The purpose is to identify completed courses. Extract course identifiers locally and ask the user to confirm them.
 
 ## Question 4: 历史用户数据的含义
 
@@ -62,7 +64,7 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：建议 A；目前不存在已验证的多用户历史数据集。
 
-[Answer]:
+[Answer]: A
 
 ## Question 5: 技术和模型提案
 
@@ -76,7 +78,7 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：A 可沿用已写好的技术文档。它只确认计划，既不证明 API 已可用，也不授权付费调用；不要在回答中贴 API key。
 
-[Answer]:
+[Answer]: A
 
 ## Question 6: 评价数据的首版接入方式
 
@@ -90,7 +92,9 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：建议 A，来源目标不变，但减少外部接入对演示的影响。
 
-[Answer]:
+[Answer]: A
+
+Use permitted curated or user-supplied material and source links. Users may open public source links in their browser. Automated collection is outside the committed MVP scope.
 
 ## Question 7: 共同会议的频率
 
@@ -104,7 +108,7 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：A 与最初草案相同，但此前尚未获明确确认；其他安排可选 X。同一时段一人操作、大家共用一个工作流，操作者可轮换。
 
-[Answer]:
+[Answer]: A
 
 ## Question 8: Security Baseline 扩展
 
@@ -118,7 +122,7 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：建议 B，避免将生产级扩展整体引入课程原型；基础安全不会取消。
 
-[Answer]:
+[Answer]: B
 
 ## Question 9: Resiliency Baseline 扩展
 
@@ -132,7 +136,7 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：建议 B；课程不要求云部署或生产高可用。
 
-[Answer]:
+[Answer]: B
 
 ## Question 10: Property-Based Testing 扩展
 
@@ -148,8 +152,8 @@ X) 其他（请在 [Answer]: 后说明）。
 
 说明/建议（非已确认决定）：建议 B；适合时间冲突、权重处理等确定性逻辑。排课可行性仍必须独立检查。
 
-[Answer]:
+[Answer]: B
 
 ## 后续关口
 
-收到答案后，agent 会检查完整性与矛盾，同步输入草案，并请团队确认输入基线；之后才生成 requirements.md 并进入独立的需求阶段审阅。当前没有 requirements.md，没有任何阶段批准。正式用户故事、执行计划、应用设计和工作单元不提前生成。最终提交负责人可在后续工作分解中指定，不影响本轮技术/产品澄清。
+10 项选择已通过聊天收到并核对。请团队审阅更新后的 Vision 和 Technical Environment，确认后再将这些输入用于生成正式需求。正式需求生成后会单独提交审阅。

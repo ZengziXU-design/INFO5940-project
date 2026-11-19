@@ -1,9 +1,9 @@
 # Technical Environment Document — CourseCompass
 
-**Status:** Proposed team baseline for AI-DLC Inception; review/approve as a team before beginning workflow.  
+**Status:** Planned stack reflects the recorded clarifications. Team review of the revised input baseline is pending.
 **AI-DLC:** AWS AI-DLC v1.0.1, using OpenAI Codex with versioned rules.  
 **Deployment:** Local-only web application for course demo; hosted LLM API is allowed.
-**Pending baseline:** Q5 confirms the proposed technologies/model; Q3 and Q4 determine transcript and historical-data boundaries. No unanswered choice is treated as approved.
+**Local data:** Only the current user’s explicitly saved preferences inform future recommendations. Completed-course identifiers are confirmed by the user.
 
 ## 1. Language, Version, and Package Manager
 
@@ -18,7 +18,7 @@
 
 ## 2. Frameworks and Libraries
 
-| Component | Proposed technology (pending Q5) | Purpose |
+| Component | Planned technology | Purpose |
 | --- | --- | --- |
 | Web UI | Streamlit | Chat, preference sliders, clickable timetable and course-detail sidebar cards (UI implementation to be validated during Construction) |
 | Local API | FastAPI + Uvicorn | Typed endpoints for planning and preference updates |
@@ -27,11 +27,11 @@
 | Optimization | OR-Tools CP-SAT | Feasible course/section combination search |
 | Data processing | Python standard library; `pandas` only if needed | Normalize records and display tables |
 | Storage | SQLite via standard-library `sqlite3` | Local cache of course records and approved evidence, no account needed |
-| LLM inside product | OpenAI `gpt-4.1-mini` via official Python SDK | Preference parsing, clarification, evidence-based explanations; team to confirm access/budget; integration during Construction |
+| LLM inside product | OpenAI `gpt-4.1-mini` via official Python SDK | Preference parsing, clarification, and evidence-based explanations. Integrate during Construction, with budget and owner confirmed before the first paid call. |
 | Agent orchestration | Small custom finite-state workflow + validated tool calls | Predictable behavior and testability; no need for heavyweight agent platform |
 | Test framework | `pytest`, `pytest-cov`, FastAPI `TestClient` | Unit and integration coverage |
 
-The model/provider are proposed, not yet verified in the team's runtime. If the team elects Ollama instead, document the exact model, supported tool-calling/structured-output behavior, hardware requirements, and update README and this file consistently before the input baseline and downstream requirements are approved.
+The planned inference service is OpenAI gpt-4.1-mini. Construction will verify runtime access and confirm the budget and owner before any paid call.
 
 ## 3. Cloud Provider and Deployment Model
 
@@ -85,7 +85,7 @@ Actual Python package files will be created during **Construction**, not before 
 **Secret management:** Read `OPENAI_API_KEY` from a local `.env` or process environment; `.env`, local SQLite caches containing personal details, and any secrets must be excluded from Git. Provide `.env.example` with variable names only.  
 **Input validation:** Pydantic constrains message length, credit range, course count, subject/term values, and normalized weights; reject unknown tool names/parameters.  
 **Prompt injection:** Treat course descriptions, websites, and reviews as untrusted data; never obey embedded instructions, never allow LLM-generated shell commands, and use allowlisted tool functions only.  
-**Transport/privacy:** Hosted model calls use HTTPS. Do not require student identity, NetID or Cornell login. Manual completed-course input remains available; if Q3 enables transcript files, parse them locally, require confirmation of extracted course IDs and do not send or retain raw transcripts in model calls, audit logs or Git. Do not log API keys or full conversations. Provide a clear warning before text is sent to a hosted provider.
+**Transport/privacy:** Hosted model calls use HTTPS. Do not require student identity, NetID or Cornell login. Provide manual completed-course entry and local text-based PDF import. Extract only course identifiers needed for eligibility and duplicate checks and ask the user to verify them. Keep original PDFs and raw transcript text out of model calls, persistent storage, audit logs and Git. Offer manual entry if extraction fails or the PDF is scanned. Do not log API keys or full conversations. Provide a clear warning before text is sent to a hosted provider.
 **Risk baseline:** Follow relevant OWASP ASVS input-validation and secret-handling guidance and OWASP LLM prompt-injection principles, scoped to a local course project.
 
 ## 8. Prohibited Libraries and Patterns
@@ -108,6 +108,7 @@ Actual Python package files will be created during **Construction**, not before 
 | Type | Tool | Required checks |
 | --- | --- | --- |
 | Unit tests | pytest | Credit total, overlap, prerequisite flags, weight normalization, missing reviews |
+| Property-based tests | Hypothesis with pytest | Partial AI-DLC PBT coverage for pure functions and serialization round-trips. Use domain generators, shrinking and reproducible seeds. |
 | Optimizer verification | pytest + exhaustive enumeration | For small instances, match optimal objective and never violate hard constraints |
 | API contract tests | FastAPI TestClient | Valid requests, malformed input, no-solution response, stable JSON schema |
 | LLM agent tests | Mock client + labeled user utterances | JSON extraction, clarification, revisions retaining prior hard constraints |
@@ -175,7 +176,7 @@ def test_overlapping_and_back_to_back_meetings() -> None:
 ## 13. Source and Model Configuration Decisions
 
 - Official roster and catalog: https://classes.cornell.edu/ and https://catalog.cornell.edu/
-- Requested coverage is all data-accessible published Cornell terms and departments/subjects. Q2 determines single-target-term selection versus multi-semester scheduling; expose unsupported/missing data and verify actual coverage during Construction rather than silently restoring the old CS/INFO/ORIE limit.
+- Coverage targets all accessible subjects in published Cornell terms. Each request uses one chosen term. Historical terms may provide context. Verify actual data coverage during Construction.
 - Preferred inference provider: OpenAI API and model `gpt-4.1-mini`, requiring a team-controlled key; mock all inference for CI/tests.
 - Restrict review data to demonstrably permitted sources; label any manually created illustrative cases as synthetic.
 - Always record source provenance, and do not represent estimated course difficulty or quality as verified Cornell information.

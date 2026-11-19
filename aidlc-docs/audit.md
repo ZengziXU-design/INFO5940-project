@@ -107,3 +107,47 @@ No new user input; earlier discussion and installed stage rules applied.
 **Context**: Current gate is Requirements Analysis clarification/input-baseline review. Proposed choices are Q1 A, Q2 A, Q3 A, Q4 A, Q5 A, Q6 A, Q7 A, Q8 B, Q9 B, Q10 B; these are suggestions only, not recorded answers. Progress will be checkpointed in Git for the shared team workflow.
 
 ---
+
+## Requirements Analysis — Clarification Answers and Baseline Review Request
+**Timestamp**: 2026-11-19T19:12:44Z
+
+**User Input**:
+
+~~~text
+
+
+| 编号      | 待确认内容                     | 我的建议                                                  |
+| ------- | ------------------------- | ----------------------------------------------------- |
+| **Q1**  | 每周学习小时数的含义                | **A：课外学习时间**，不含上课                                     |
+| **Q2**  | “所有学期”的含义                 | **A：可选择任意有数据的学期，每次排一个学期**                             |
+| **Q3**  | 成绩单输入                     | **A：手动填写＋本地文字型 PDF 导入**，暂不支持扫描件（其实主要是了解用户已经修了哪些课程）    |
+| **Q4**  | 历史用户数据                    | **A：仅本人本地保存的偏好**，新用户使用默认权重                            |
+| **Q5**  | 技术与模型                     | **A：沿用现有 Python 等技术方案和计划模型**，付费调用前再确认预算               |
+| **Q6**  | RMP／Reddit 评价接入           | **A：首版先用有出处的人工整理或用户提供材料（我觉得可以直接访问网站？因为网站链接时公开可访问的？）** |
+| **Q7**  | 共同会议频率                    | **A：每周两次、每次约 60 分钟**，另有课前后交流                          |
+| **Q8**  | 额外 Security Baseline 扩展   | **B：不启用**，基础安全要求仍保留                                   |
+| **Q9**  | 额外 Resiliency Baseline 扩展 | **B：不启用**，保留基本错误处理和降级                                 |
+| **Q10** | Property-Based Testing 扩展 | **B：部分启用**，用于纯函数等确定性逻辑                                |
+~~~
+
+**AI Response / Action**: Recorded Q1–Q7 as A and Q8–Q10 as B. Synchronized the three input documents. Interpreted Q6 as permission to present source links and use permitted curated or user-supplied materials. Referenced [Rate My Professors terms](https://www.ratemyprofessors.com/terms-of-use) and the [Reddit User Agreement](https://redditinc.com/policies/user-agreement) for restrictions on automated access and collection. Marked Security and Resiliency extensions as skipped. Loaded Property-Based Testing in Partial mode and proposed Hypothesis with pytest in the baseline under PBT-09.
+
+**Context**: The clarification choices are recorded and separate from team review of the revised Vision and Technical Environment. The next request is for review of those two files, as the course milestone requires the team to agree on its inputs. Requirements Analysis remains in progress.
+
+---
+
+## Requirements Analysis — Publish Review Draft
+**Timestamp**: 2026-11-19T19:16:40Z
+
+**User Input**:
+
+~~~text
+那先push到 github上？
+待会儿再让大家看看？
+~~~
+
+**AI Response / Action**: Reviewed the current changes and checked the remote branch. Prepared the answered questions, revised input documents, and workflow records for a GitHub checkpoint.
+
+**Context**: The team will review the input documents after the checkpoint is shared. Team approval of the input documents remains pending.
+
+---

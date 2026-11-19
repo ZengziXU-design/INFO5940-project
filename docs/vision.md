@@ -3,11 +3,11 @@
 **Project type:** New, local-first LLM-integrated web application  
 **Audience:** Cornell students planning a semester  
 **Planning horizon:** Inception by November 24, 2026; functional MVP by December 16, 2026
-**Status:** Draft reflecting user-reported team discussion; unresolved choices and input-baseline review remain pending. See the formal requirement-verification question file.
+**Status:** Revised with recorded clarification answers. Team review of this input baseline is pending.
 
 ## 1. Executive Summary
 
-CourseCompass is a conversational course-planning assistant that recommends **combinations of Cornell classes**, not just isolated courses. Students describe academic constraints, intended career or research direction, workload tolerance, scheduling preferences, and instructor/course quality priorities. An LLM turns those preferences into a transparent, editable profile and researches available course information, while a deterministic optimizer assembles feasible schedules and explains their trade-offs. The requested MVP retains F1–F8 and targets all data-accessible published Cornell semesters and departments/subjects. Q2 will clarify selection of a single target term versus multi-semester planning; no unavailable or unpublished offering is assumed. Outputs contain up to three feasible options.
+CourseCompass is a conversational course-planning assistant that recommends **combinations of Cornell classes**, not just isolated courses. Students describe academic constraints, intended career or research direction, workload tolerance, scheduling preferences, and instructor/course quality priorities. An LLM turns those preferences into a transparent, editable profile and researches available course information, while a deterministic optimizer assembles feasible schedules and explains their trade-offs. The requested MVP retains F1–F8 and targets all data-accessible published Cornell semesters and departments/subjects. Each recommendation uses one selected published term with accessible roster data. Historical offerings can provide context. Outputs contain up to three feasible options.
 
 ## 2. Problem Statement
 
@@ -23,30 +23,30 @@ CourseCompass aims to reduce manual comparison and make trade-offs explicit. The
 | Student exploring a field | Compare interesting electives without overcommitting | “I want to try ORIE, but prefer project-heavy classes over exams.” |
 | Research-oriented student | Prioritize technical depth and research relevance | “I want theory-focused classes but not three heavy proof courses together.” |
 
-Users supply completed-course and requirement information. They may identify courses they cannot or do not want to repeat. Local transcript-file import has been proposed but is not confirmed (Q3); any extracted courses require user confirmation. The MVP does not authenticate with Cornell or certify graduation.
+Users supply completed-course and requirement information. They may identify courses they cannot or do not want to repeat. The user can enter completed courses manually or use optional local text-based PDF import. Confirm extracted course identifiers before use. Scanned PDFs are outside the MVP. The MVP does not authenticate with Cornell or certify graduation.
 
 ## 4. User Inputs and Preference Categories
 
 **Hard constraints (never silently violated):** chosen semester; credit minimum and maximum; forbidden meeting windows; section meeting conflicts; at most one section package per course; required or excluded courses if explicitly supplied; declared prerequisite eligibility when reliable structured data is available; required course components such as mandatory lectures and discussions when modeled.
 
-**Study-time input:** The user requested a weekly time budget; whether it measures out-of-class effort or total class-plus-study time is pending Q1. Workload evidence may be missing, so estimates must not be presented as verified hours.
+**Study-time input:** The weekly time budget measures study outside class. Display workload evidence as an estimate or label it unavailable.
 
 **Soft, weighted criteria:** (1) career/research relevance, (2) subject interest, (3) teaching quality when there is evidence, (4) manageable workload, (5) difficulty fit relative to the student's background, (6) preferred days/times and compactness. The user can edit weights, and the system normalizes nonnegative weights. When evidence is missing, the criterion is marked unavailable rather than fabricated or automatically treated as a bad score.
 
-**Cold-start default proposal:** Interest 25%, career/research relevance 20%, timetable convenience 20%, workload fit 15%, difficulty fit 10%, teaching evidence 10%. These are assistant-proposed editable defaults under the user’s request for a default priority, not a separately approved fixed policy. Missing evidence is not a negative rating. Historical personalization is pending Q4; never assume a historical-user dataset exists.
+**Cold-start default proposal:** Interest 25%, career/research relevance 20%, timetable convenience 20%, workload fit 15%, difficulty fit 10%, teaching evidence 10%. These are assistant-proposed editable defaults under the user’s request for a default priority, not a separately approved fixed policy. Missing evidence is not a negative rating. The app may restore preferences the current user has chosen to save locally. New users start with editable defaults.
 
 **Additional optional profile inputs:** preferred assessment method, current obligations, preferred course level, desire for exploratory electives, self-reported prior courses, and expected graduation timeline. Only those that can be handled consistently by the MVP should affect automated optimization.
 
 ## 5. Full Product Vision (Beyond MVP)
 
-In a mature product, CourseCompass could support multiple universities and terms, verified long-horizon prerequisite planning beyond the scope agreed in Q2, official program-specific degree audits, deeper authorized academic-record integrations, richer evidence from permitted course evaluation sources, enrollment-status monitoring, and integration with personal calendars. Future optimization could model travel time, exam clustering, uncertainty in workload, and multi-term opportunity costs.
+In a mature product, CourseCompass could support multiple universities and terms, multi-term prerequisite planning, official program-specific degree audits, deeper authorized academic-record integrations, richer evidence from permitted course evaluation sources, enrollment-status monitoring, and integration with personal calendars. Future optimization could model travel time, exam clustering, uncertainty in workload, and multi-term opportunity costs.
 
 ## 6. MVP Scope — Features In
 
 | ID | Feature | User value and expected behavior |
 | --- | --- | --- |
 | F1 | Conversational onboarding and refinement | Interpret free-form student preferences into structured fields; ask clarification for missing critical inputs; display fields for confirmation/editing. |
-| F2 | Cornell semester course ingestion | Query published Cornell course and section data for the selected term(s) and all data-accessible Cornell subjects, with exact planning semantics pending Q2; retain source URLs, retrieval time, credits, title, instructor, and meeting information where available. |
+| F2 | Cornell semester course ingestion | Query published Cornell course and section data for one selected published term and all data-accessible Cornell subjects; retain source URLs, retrieval time, credits, title, instructor, and meeting information where available. |
 | F3 | Course information and evidence cards | Show official facts and, when available, permitted curated review evidence, with source attribution and uncertainty labeling. |
 | F4 | Editable weighted preference profile | Expose six preference weights, allow user adjustments, normalize weights, and distinguish soft preferences from hard constraints. |
 | F5 | Feasibility and schedule optimization | Produce up to three high-scoring, distinct schedules satisfying supported credit/meeting/exclusion constraints; report no-solution cases and actionable relaxations. |
@@ -70,7 +70,7 @@ In a mature product, CourseCompass could support multiple universities and terms
 
 ## 8. Data and Evidence Policy
 
-Official Cornell roster details take precedence over opinion sources for course identity, credits, instructor assignments, meetings, and availability. Descriptions and syllabi may supplement topics and assignments when accessible. Community comments may inform *qualitative* ratings only where collection and use are permitted, and must include the source, date if available, and an explicit uncertainty indicator. We will never invent instructor ratings or infer a student's likely grade from a single review. Sources requested by the team include the Cornell Class Roster and course websites, with Rate My Professors and Reddit as possible review references. Their access/integration mode is pending Q6. For a new course, a professor’s official research interests may be described, but they are not evidence of teaching quality or course workload. If a source is unavailable, label missing information and keep the official-course path usable.
+Official Cornell roster details take precedence over opinion sources for course identity, credits, instructor assignments, meetings, and availability. Descriptions and syllabi may supplement topics and assignments when accessible. Community comments may inform *qualitative* ratings only where collection and use are permitted, and must include the source, date if available, and an explicit uncertainty indicator. We will never invent instructor ratings or infer a student's likely grade from a single review. Sources requested by the team include the Cornell Class Roster and course websites, with Rate My Professors and Reddit as possible review references. The MVP displays source links and accepts permitted curated or user-supplied evidence. Users can open the source in a browser. Inclusion in the MVP does not depend on automated retrieval from either review site. For a new course, a professor’s official research interests may be described, but they are not evidence of teaching quality or course workload. If a source is unavailable, label missing information and keep the official-course path usable.
 
 ## 9. Success Metrics and Acceptance Targets
 
@@ -107,17 +107,10 @@ Official Cornell roster details take precedence over opinion sources for course 
 
 ## 12. Open Questions for Team and AI-DLC Inception
 
-The formal questions are in `aidlc-docs/inception/requirements/requirement-verification-questions.md`:
+Q1–Q10 are recorded in the formal requirements question file. Remaining design work includes:
 
-- Q1: Definition of the weekly learning-time budget.
-- Q2: Meaning of all-semester coverage and the scheduling horizon; all available Cornell departments remain the requested coverage.
-- Q3: Manual completed-course input versus local transcript-file import in the first release.
-- Q4: Personal local history versus cross-user historical data.
-- Q5: Plain-language confirmation or revision of the proposed stack/model; API setup is deferred to Construction.
-- Q6: Initial integration method for RMP/Reddit review evidence.
-- Q7: Meeting frequency/duration.
-- Q8–Q10: Explicit AI-DLC extension opt-ins; these are workflow choices, not additional course deliverables.
-
-The confirmed input baseline must be reviewed before downstream requirements are generated. Answering clarification questions is not approval of ungenerated requirements, stories or designs.
-
-These questions must be explicitly discussed and resolved or narrowed through AI-DLC's actual clarification and approval workflow; the agent should not assume the proposal alone constitutes team approval.
+- Validate the Cornell roster’s term and subject coverage and identify which lecture, discussion, and lab combinations have enough data to verify feasibility.
+- Define which prerequisite and repeat-enrollment rules can be checked using official data and user-confirmed completed-course identifiers.
+- Validate the editable default weights and workload scoring against representative scheduling examples.
+- Confirm extraction and calendar acceptance scenarios, including unavailable required courses and infeasible schedules.
+- Identify the API budget owner and spending limit before the first paid call in Construction.
