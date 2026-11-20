@@ -4,7 +4,7 @@
 - Project: CourseCompass, INFO 5940 Team 15
 - Project Type: Greenfield
 - Start Date: 2026-11-19T19:02:28Z
-- Current Stage: INCEPTION — Application Design (awaiting review of design artifacts)
+- Current Stage: INCEPTION — Units Generation (artifacts generated, final team approval pending)
 - AI-DLC version: 1.0.1
 - Base commit after requested pull: ba84f141a04f46003ff1725993ce8e9f71b1dcf5
 - Milestone: 2026-11-24; complete Units Generation and stop before Construction
@@ -24,8 +24,8 @@
 - [x] Requirements Analysis — team confirmed the inputs and approved the requirements at 2026-11-20T05:29:59Z.
 - [x] User Stories — stories and personas approved at 2026-11-20T06:23:43Z.
 - [x] Workflow Planning — revised execution plan and timetable interaction amendment approved at 2026-11-20T06:48:14Z.
-- [ ] Application Design — design artifacts generated, awaiting explicit team approval.
-- [ ] Units Generation — not started; required for the course.
+- [x] Application Design — design presented and continuation authorized by the team representative at 2026-11-20T06:57:43Z.
+- [ ] Units Generation — all three artifacts generated, awaiting final team approval.
 - [ ] Construction — not started; outside this milestone.
 - [ ] Operations — not required; not started.
 
@@ -63,7 +63,14 @@
 - [x] Prepare the Application Design plan and three focused questions.
 - [x] Collect and validate the team answers.
 - [x] Generate and present the Application Design artifacts.
-- [ ] Obtain explicit approval of Application Design before starting Units Generation.
+- [x] Record the team representative's instruction to continue from the presented Application Design.
+
+## Units Generation Progress
+- [x] Record direct authorization to generate the remaining deliverables and the absence of a separate plan review.
+- [x] Decompose the approved design and record the planning decisions in plans/unit-of-work-plan.md.
+- [x] Generate unit definitions, dependencies and story mapping.
+- [x] Verify coverage of all 13 stories, 10 functional requirements and 6 nonfunctional requirements.
+- [ ] Record team review and final approval of the generated units.
 
 ## Extension Configuration
 | Extension | Enabled | Decided At |
@@ -80,4 +87,4 @@ The full PBT extension rule was read for Partial mode. PBT-02, PBT-03, PBT-07, P
 - Team-authored inputs remain in docs/.
 
 ## Current Status and Resume
-Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. The Requirements Analysis and User Stories baselines and the timetable interaction amendment are approved. The three design answers are recorded in inception/plans/application-design-plan.md. Review inception/application-design/application-design.md and its four supporting documents. Wait for explicit approval of Application Design before starting Units Generation. The plan includes Application Design and Units Generation and stops before Construction. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.
+Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. The Requirements Analysis and User Stories baselines and the timetable interaction amendment are approved. The Application Design decisions and the representative's authorization to continue are recorded. All milestone files, including the three Units Generation artifacts, are ready for review. Final team approval of the generated units is pending. Stop at the Inception boundary before Construction. Canvas submission is external to this repository. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.

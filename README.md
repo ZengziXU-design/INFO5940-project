@@ -49,6 +49,15 @@ All four members participate in operating Codex and reviewing artifacts. The tea
 **Milestone (Nov 24):** Complete Inception through Units Generation, then stop before Construction.  
 **Final (Dec 16):** Complete Construction, test the MVP, and submit the required demonstrations and presentation.
 
+## Mid-semester Deliverables
+
+- [Requirements](aidlc-docs/inception/requirements/requirements.md) and [answered questions](aidlc-docs/inception/requirements/requirement-verification-questions.md)
+- [User stories](aidlc-docs/inception/user-stories/stories.md) and [personas](aidlc-docs/inception/user-stories/personas.md)
+- [Workflow execution plan](aidlc-docs/inception/plans/execution-plan.md)
+- [Application Design overview](aidlc-docs/inception/application-design/application-design.md)
+- [Unit of work](aidlc-docs/inception/application-design/unit-of-work.md), [dependencies](aidlc-docs/inception/application-design/unit-of-work-dependency.md), and [story map](aidlc-docs/inception/application-design/unit-of-work-story-map.md)
+- [Audit](aidlc-docs/audit.md) and [current state](aidlc-docs/aidlc-state.md)
+
 ## Mid-semester Workflow Boundary
 
 The course's mid-semester milestone requirements take precedence when choosing AI-DLC stages. The required Inception stages are Requirements Analysis, User Stories, Workflow Planning, Application Design, and Units Generation. Do not omit their required artifacts because the general workflow labels a stage conditional. After the team approves Units Generation, stop before Construction; Operations is not required for this course project.

@@ -1,6 +1,6 @@
 # CourseCompass Application Design
 
-**Status:** Ready for team review. Q1=A, Q2=A, Q3=A are recorded in the [design plan](../plans/application-design-plan.md).
+**Status:** Design presented at cb3d20b. The team representative authorized continuing to Units Generation. Q1=A, Q2=A, Q3=A are recorded in the [design plan](../plans/application-design-plan.md).
 
 **Basis:** [Approved requirements](../requirements/requirements.md), [user stories](../user-stories/stories.md), and [technical environment](../../../docs/technical-environment.md).
 

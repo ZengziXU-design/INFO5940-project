@@ -1,6 +1,6 @@
 # CourseCompass Application Design Plan
 
-**Status:** Answers validated. Design artifacts generated and ready for team review.
+**Status:** Application Design presented at cb3d20b. The team representative authorized continuing to Units Generation.
 
 **Basis:** [Approved execution plan](execution-plan.md), [requirements](../requirements/requirements.md), [user stories](../user-stories/stories.md), [personas](../user-stories/personas.md), and the [technical environment](../../../docs/technical-environment.md), reviewed at f36a8ed.
 
@@ -69,7 +69,7 @@ Q1, Q2 and Q3 all select A. These choices are compatible. Both a manual edit and
 - [x] Produce `../application-design/application-design.md` as the consolidated design with requirement and story traceability.
 - [x] Validate consistency against F1–F8, FR-01–FR-10 and US-01–US-13. Check preview cancellation, pinned courses, stale revisions, an infeasible result, missing evidence and the labeled model or roster fallback.
 - [x] Present the artifacts for team review.
-- [ ] Record explicit Application Design approval before Units Generation.
+- [x] Record the team representative's authorization to continue from the presented Application Design.
 
 ## Inception boundary
 
