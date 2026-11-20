@@ -1,6 +1,6 @@
 # CourseCompass User Stories Generation Plan
 
-**Status:** Awaiting team answers
+**Status:** Answers validated. Awaiting team approval of this plan.
 
 **Inputs:** [Approved requirements](../requirements/requirements.md), [requirements answers](../requirements/requirement-verification-questions.md), [Vision](../../../docs/vision.md), and [assessment](user-stories-assessment.md).
 
@@ -18,7 +18,7 @@ Write stories using “As a …, I want …, so that …” with stable IDs and 
 | Domain | Clarifies business areas such as course evidence and schedule feasibility. | Can make related student actions harder to follow as a sequence. |
 | Epics | Gives a concise overview of larger capability groups. | Adds hierarchy for a small MVP unless used sparingly. |
 
-Recommendation: organize by user journey and preserve feature and requirement traceability in a separate table. Use the story grouping and exception granularity selected below.
+The team selected A for both questions. Organize stories by the student journey and include requirement and feature references. Cover routine input and evidence gaps as acceptance cases. Write separate stories for recovery from an unavailable required course, a search with no feasible schedule, and use of the labeled demonstration fallback.
 
 ## Team questions
 
@@ -34,7 +34,7 @@ C) By student persona, with common stories written once and linked from each per
 
 D) Other (please specify).
 
-[Answer]:
+[Answer]: A
 
 ### Q2 — How should exception scenarios be represented?
 
@@ -44,14 +44,14 @@ B) Keep every exception as an acceptance case in the corresponding primary story
 
 C) Other (please specify).
 
-[Answer]:
+[Answer]: A
 
 ## Execution checklist
 
 - [x] Assess the need for the stage and record the decision.
 - [x] Review the approved requirements, question answers, and Vision personas.
 - [x] Define the approach, story options, and deliverables.
-- [ ] Collect answers and resolve any ambiguity.
+- [x] Collect and validate both A answers. The choices are consistent and require no clarification.
 - [ ] Obtain explicit approval of the story generation plan.
 - [ ] Create `aidlc-docs/inception/user-stories/personas.md` with goals, constraints, scenarios, and story references.
 - [ ] Create `aidlc-docs/inception/user-stories/stories.md` using the approved organization and breakdown. Include acceptance criteria and persona and requirement mapping.
