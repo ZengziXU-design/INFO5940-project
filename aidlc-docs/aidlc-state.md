@@ -4,7 +4,7 @@
 - Project: CourseCompass, INFO 5940 Team 15
 - Project Type: Greenfield
 - Start Date: 2026-11-19T19:02:28Z
-- Current Stage: INCEPTION — Requirements Analysis (clarifications recorded, awaiting input-baseline review)
+- Current Stage: INCEPTION — Requirements Analysis (requirements draft ready, awaiting team review)
 - AI-DLC version: 1.0.1
 - Base commit after requested pull: ba84f141a04f46003ff1725993ce8e9f71b1dcf5
 - Milestone: 2026-11-24; complete Units Generation and stop before Construction
@@ -21,7 +21,7 @@
 ## Stage Progress
 - [x] Workspace Detection — completed; no approval gate required.
 - [x] Reverse Engineering — skipped with reason: no existing application code.
-- [ ] Requirements Analysis — in progress, awaiting team review of the revised input documents.
+- [ ] Requirements Analysis — draft ready, awaiting team agreement on the inputs and approval of Requirements Analysis.
 - [ ] User Stories — not started; required for the course.
 - [ ] Workflow Planning — not started; required for the course.
 - [ ] Application Design — not started; required for the course.
@@ -39,8 +39,9 @@
 - [x] Receive and validate Q1–Q10. Record the interpretation of Q6 and its source-access evidence.
 - [x] Synchronize README, Vision and Technical Environment with the answers and the selected PBT mode.
 - [ ] Obtain team review and agreement on the revised input baseline.
-- [ ] Generate requirements.md only after the question gate and input-baseline review.
-- [ ] Present requirements.md for its own explicit approval.
+- [x] Generate requirements.md for review from the answered questions and current input documents.
+- [x] Present requirements.md and the revised input documents for review.
+- [ ] Record explicit approval of Requirements Analysis after team review.
 
 ## Extension Configuration
 | Extension | Enabled | Decided At |
@@ -57,4 +58,4 @@ The full PBT extension rule was read for Partial mode. PBT-02, PBT-03, PBT-07, P
 - Team-authored inputs remain in docs/.
 
 ## Current Status and Resume
-Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 are recorded. Await team review and agreement on the revised Vision and Technical Environment before drafting formal requirements. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.
+Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 are recorded. Review the revised Vision and Technical Environment and the Requirements Analysis draft at inception/requirements/requirements.md. Wait for team agreement on the inputs and explicit approval of the requirements before starting User Stories. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.
