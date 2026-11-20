@@ -1,8 +1,8 @@
 # CourseCompass User Stories
 
-**Status:** Approved. Reviewed revision: cd3ebd5.
+**Status:** Original stories approved at cd3ebd5. The timetable interaction revision is ready for review with Workflow Planning.
 
-**Basis:** [Approved requirements](../requirements/requirements.md), [approved generation plan](../plans/story-generation-plan.md), and [personas](personas.md).
+**Basis:** [Requirements](../requirements/requirements.md), [approved generation plan](../plans/story-generation-plan.md), and [personas](personas.md).
 
 The stories follow the student's journey from defining a goal to revising a timetable. Each story has observable acceptance criteria. Examples use illustrative inputs and fixtures.
 
@@ -54,7 +54,7 @@ The stories follow the student's journey from defining a goal to revising a time
 **Personas:** P1, P2, P3. **Trace:** F4 / FR-05.
 
 - **Given** a new profile, **when** the student opens its preferences, **then** the app offers editable defaults for career or research relevance, interest, teaching quality, workload fit, difficulty fit, and timetable convenience.
-- **Given** the student increases timetable convenience, **when** recommendations are refreshed, **then** the app uses the revised weight and preserves confirmed hard constraints. Only criteria with usable evidence inform the score, and the comparison identifies them and labels missing evidence.
+- **Given** the student increases timetable convenience, **when** recommendations are refreshed, **then** the app uses the revised weight and preserves confirmed hard constraints. Only criteria with usable evidence inform the score, and the recommendation explains which criteria were used and where evidence is missing.
 
 - **Given** weights of 2 for interest and 6 for relevance with zeros elsewhere and evidence for both criteria, **when** they are applied, **then** they contribute 25% and 75%, respectively. Negative values are rejected.
 
@@ -67,36 +67,36 @@ The stories follow the student's journey from defining a goal to revising a time
 - **Given** the student explicitly saved a preference profile locally, **when** they return to that local profile, **then** they can restore and edit the saved preferences.
 - **Given** there is no saved profile, **when** the student begins, **then** the app starts with editable defaults. The app uses only this student's saved preferences for history-based personalization.
 
-## 3. Compare feasible schedules and inspect evidence
+## 3. Review and customize the recommended timetable
 
-### US-07 — Generate validated schedule options
+### US-07 — Start with one validated timetable
 
-**As a** student planning around degree requirements and time restrictions, **I want** validated schedule options, **so that** I can compare timetables that meet my confirmed hard constraints.
+**As a** student planning around degree requirements and time restrictions, **I want** the recommended course combination filled into a weekly timetable, **so that** I have a feasible starting point.
 
 **Personas:** P1, P2, P3. **Trace:** F5 / FR-06, FR-07, NFR-01.
 
-- **Given** a fixture with multiple feasible schedules, **when** the student requests recommendations, **then** the app returns up to three distinct options that respect chosen term, credit limits, pinned and excluded courses, required section components and unavailable blocks. Each course appears at most once in each plan with one compatible section package.
-- **Given** candidates that include overlapping meetings, a missing required discussion, and back-to-back meetings, **when** feasibility is checked, **then** conflicting and incomplete combinations are excluded and back-to-back times are allowed.
-- **Given** only one valid schedule exists in the candidate fixture, **when** results are shown, **then** the app shows that option without duplicating it to fill the list.
-
+- **Given** a confirmed profile and a fixture with multiple ranked feasible schedules, **when** the planning view first opens, **then** exactly one timetable is prefilled with the highest-ranked validated combination found. It displays the term, meeting blocks, total credits, and grounded recommendation reasons.
+- **Given** candidates with overlapping meetings, a missing required discussion, and back-to-back meetings, **when** feasibility is checked, **then** conflicting and incomplete combinations are excluded and back-to-back times are allowed. Each scheduled course appears once with one compatible section package.
 - **Given** a candidate with unclear prerequisites, **when** its eligibility is evaluated, **then** the app asks the student to clarify or identifies eligibility as unresolved.
 
-### US-08 — Compare weekly timetables
+### US-08 — Try individual alternatives against the current timetable
 
-**As a** student weighing timetable convenience and workload, **I want** to compare the schedules and their trade-offs, **so that** I can see why one may suit me better.
+**As a** student weighing timetable convenience and workload, **I want** to inspect and try alternative courses individually, **so that** I can personalize the recommendation while keeping my confirmed constraints.
 
-**Personas:** P1, P2, P3. **Trace:** F6 / FR-08, NFR-05.
+**Personas:** P1, P2, P3. **Trace:** F5 and F6 / FR-06, FR-08, NFR-01, NFR-05.
 
-- **Given** two validated options, **when** the student switches between them, **then** each view shows the weekly timetable, total credits, and relevant trade-offs based on the confirmed preferences and available evidence.
-- **Given** workload information is unavailable for a course, **when** the app explains the comparison, **then** it makes the limitation visible and offers available factual differences.
+- **Given** one feasible timetable and three relevant alternatives, **when** the result opens, **then** alternatives are presented as three individual course cards. Each card is visible even if the three alternatives could never form a feasible schedule together.
+- **Given** a candidate section overlaps a scheduled elective, **when** the student drags it in or uses the click action, **then** the app marks and names the conflict, lists affected courses, and shows the resulting credits before confirmation. Canceling preserves the current timetable.
+- **Given** the student confirms a replacement and the edited timetable passes deterministic checks, **when** the update is applied, **then** the weekly meeting blocks and credit total reflect the new combination and alternative compatibility is refreshed.
+- **Given** a proposed swap would remove a pinned course or still violate a hard constraint, **when** the student attempts to confirm, **then** the previous timetable stays active and the app explains which requirement prevents the change.
 
 ### US-09 — Inspect a course and its sources
 
-**As a** student considering an unfamiliar elective, **I want** to open the course details from the timetable, **so that** I can verify official facts and decide how much weight to give opinions.
+**As a** student considering an unfamiliar elective, **I want** to open the course details from the timetable or alternative list, **so that** I can verify official facts and decide how much weight to give opinions.
 
 **Personas:** P1, P2, P3. **Trace:** F3 and F6 / FR-04, FR-08, NFR-03.
 
-- **Given** a course on the timetable, **when** the student selects it, **then** the sidebar shows the available course title, description, instructor and official source. Relevant published program requirements remain linked references for planning.
+- **Given** a course on the timetable or in the alternative list, **when** the student selects it, **then** the detail panel shows the course code, available title, description, instructor, recommendation reason and official source. Relevant published program requirements remain linked references for planning.
 - **Given** a permitted opinion is available, **when** it is shown, **then** it is identified as unofficial with its source and date where known. When evidence is absent, the panel labels it unavailable. Instructor research background is shown separately from teaching or workload assessments.
 
 ## 4. Refine the plan and recover from exceptions
@@ -135,7 +135,7 @@ The stories follow the student's journey from defining a goal to revising a time
 **Persona:** P4. **Trace:** F8 / FR-10, NFR-04, NFR-06.
 
 - **Given** live course data or the model is unavailable and a relevant local fixture or mock path is configured, **when** the demo runs, **then** it labels the fallback, shows its data context, and completes the demonstrated path without implying live results.
-- **Given** the same fixture and scripted inputs, **when** the team repeats the demo, **then** it can reproduce initial recommendation, revision and no-feasible-schedule examples.
+- **Given** the same fixture and scripted inputs, **when** the team repeats the demo, **then** it can reproduce the initial timetable, an individual course swap, a conversational revision and a no-feasible-schedule example.
 
 ## Feature coverage
 
@@ -145,7 +145,7 @@ The stories follow the student's journey from defining a goal to revising a time
 | F2 Cornell course and section data | FR-03 | US-04 |
 | F3 Course details and evidence | FR-04 | US-09 |
 | F4 Editable weights and local preferences | FR-05 | US-05, US-06 |
-| F5 Feasibility, optimization and recovery | FR-06, FR-07 | US-07, US-11, US-12 |
-| F6 Weekly timetable and comparison | FR-08 | US-08, US-09 |
+| F5 Feasibility, optimization and recovery | FR-06, FR-07 | US-07, US-08, US-11, US-12 |
+| F6 Editable timetable and course details | FR-08 | US-08, US-09 |
 | F7 Conversational revision | FR-09 | US-10 |
 | F8 Local fallback and demo fixtures | FR-10 | US-13 |

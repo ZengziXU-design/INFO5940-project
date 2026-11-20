@@ -1,18 +1,18 @@
 # CourseCompass Execution Plan
 
-**Status:** Proposed for team review.
+**Status:** Revised after feedback. Ready for team review with the updated inputs, requirements, and stories.
 
-**Baseline:** [Approved requirements](../requirements/requirements.md), [requirements decisions](../requirements/requirement-verification-questions.md), [approved stories](../user-stories/stories.md), [approved personas](../user-stories/personas.md), and the [technical environment](../../../docs/technical-environment.md).
+**Baseline:** [Requirements](../requirements/requirements.md), [requirements decisions](../requirements/requirement-verification-questions.md), [User stories](../user-stories/stories.md), [Personas](../user-stories/personas.md), and the [technical environment](../../../docs/technical-environment.md).
 
 **Milestone boundary:** Finish and approve Units Generation for the November 24 midterm. Construction is reserved for the final project, due December 16.
 
 ## Detailed analysis
 
-CourseCompass is a greenfield local application for Cornell students across majors. The initial release turns a conversational request into a confirmed planning profile, finds up to three distinct feasible timetables for one selected term, explains the trade-offs, and preserves hard constraints when the student revises a preference. The baseline covers F1–F8 and US-01–US-13. No application package or deployment needs migration.
+CourseCompass is a greenfield local application for Cornell students across majors. The initial release turns a conversational request into a confirmed planning profile, prefills one validated timetable for a selected term and presents additional recommended courses individually. Students can preview and confirm manual changes or revise preferences through conversation. Both paths preserve confirmed hard constraints. The baseline covers F1–F8 and US-01–US-13. No application package or deployment needs migration.
 
 | Impact area | Expected effect |
 | --- | --- |
-| User experience | Conversation and profile confirmation feed an interactive weekly timetable, comparison view, course detail panel, and recovery messages for conflicts or missing information. |
+| User experience | Conversation and profile confirmation feed one prefilled weekly timetable, an individual-course recommendation list, clickable course details, and a preview and confirmation flow for course changes. |
 | Application structure | Define responsibilities and interfaces for the UI, local application service, LLM interaction, course and evidence adapters, profile handling, and deterministic ranking, solving, and validation. Agree on the boundaries in Application Design. |
 | Data model | Represent term-specific offerings, compatible section packages, meeting times and credits, confirmed constraints and preferences, and provenance. The local PDF path returns course identifiers for user review. |
 | APIs and integrations | Describe validated local request and response contracts, permitted model tool calls, Cornell Roster access, and labeled fixtures or model mocks. |
@@ -26,6 +26,7 @@ Overall delivery risk is **medium** for a local MVP, with **complex testing** ar
 | Risk | Mitigation and verification target |
 | --- | --- |
 | Missing or incompatible lecture, discussion, and lab data can make an invalid timetable look feasible. | Define how section packages enter the solver. Use a separate feasibility check and fixtures for missing associations, overlaps, back-to-back meetings, credit bounds, and required courses. |
+| A proposed course replacement can remove a pinned course or leave a conflict. | Preview the affected sections and credits, then validate the full edited timetable before committing. Exercise a valid swap, a cancellation, and a swap blocked by a hard constraint. |
 | LLM interpretation can lose confirmed constraints or misstate the source of a fact. | Use validated request updates, require confirmation for hard-constraint changes, and ground explanations in validated results and attributed evidence. Exercise an ambiguous constraint update and a preference-only revision. |
 | Optional reviews and workload evidence vary by course. | Keep official facts available independently, label missing evidence, document how ranking uses available evidence, and preserve provenance in the UI. |
 | An unclear prerequisite, unavailable pinned course, or exhausted search has a different resolution. | Carry these outcomes through the service contract and UI. Use fixtures to distinguish unresolved eligibility, proven infeasibility, missing data, and a bounded search that did not find a candidate. |
@@ -98,7 +99,7 @@ flowchart TD
     linkStyle default stroke:#333,stroke-width:2px
 ```
 
-**Text alternative.** Workspace Detection is complete and Reverse Engineering was skipped. Requirements Analysis and User Stories are approved. Next, review Workflow Planning, then execute and review Application Design, then plan, generate and approve the units of work. Stop at the midterm boundary. In a later session authorized for the final project, assess the applicable Construction design stages per unit, generate each unit, then build and test the integrated MVP. Operations is skipped.
+**Text alternative.** Workspace Detection is complete and Reverse Engineering was skipped. The original Requirements Analysis and User Stories were approved. Their timetable updates are included in the current review. Next, review Workflow Planning, then execute and review Application Design, then plan, generate and approve the units of work. Stop at the midterm boundary. In a later session authorized for the final project, assess the applicable Construction design stages per unit, generate each unit, then build and test the integrated MVP. Operations is skipped.
 
 ## Stage decisions and depth
 
@@ -108,10 +109,10 @@ flowchart TD
 | --- | --- | --- |
 | Complete | Workspace Detection | Established the greenfield baseline and loaded the project workflow. |
 | Skip | Reverse Engineering | There is no existing application to reverse-engineer. |
-| Approved | Requirements Analysis | Comprehensive due to cross-major scope, section compatibility, data quality, and privacy. |
-| Approved | User Stories | Thirteen stories and four personas cover the student journey and distinct recovery outcomes. |
+| Approved | Requirements Analysis | Comprehensive due to cross-major scope, section compatibility, data quality, and privacy. The original requirements were approved at e45ec09. The current review covers the revised recommendation and editing behavior. |
+| Approved | User Stories | Thirteen stories and four personas cover the student journey and recovery outcomes. The original artifacts were approved at cd3ebd5. The current review covers the revised timetable interaction. |
 | Proposed | Workflow Planning | This document records the scope, sequence, risks, and milestone gates. |
-| Execute | Application Design | Detailed because the local app needs new component and service contracts. Produce components.md, component-methods.md, services.md, and component-dependency.md. Use representative initial, revision, and failure paths to check that the contracts carry enough information. |
+| Execute | Application Design | Detailed because the local app needs new component and service contracts. Produce components.md, component-methods.md, services.md, and component-dependency.md. Check the contracts against the initial timetable, individual alternative cards, preview and confirmation of course edits, conversational revision, and failure paths. |
 | Execute | Units Generation | Detailed because UI, data access, model orchestration, and deterministic scheduling must integrate. Produce unit-of-work.md, unit-of-work-dependency.md, and unit-of-work-story-map.md. Define testable boundaries, dependencies, and integration checkpoints with coverage of every approved story. |
 
 ### Construction and Operations
@@ -124,7 +125,7 @@ Construction awaits later authorization. These are planning recommendations to r
 | NFR Requirements and NFR Design | Execute where correctness validation, privacy, provider limits, provenance, or demo reproducibility affect the unit. Plan end-to-end checks across unit boundaries. |
 | Infrastructure Design | Expect to skip a separate infrastructure design for loopback-only hosting with local storage. Reassess if an approved unit needs an infrastructure mapping. |
 | Code Generation | Execute for each approved unit, with tests alongside the implementation. |
-| Build and Test | Execute after all units. Exercise the initial recommendation, preference-only revision, unavailable required course, infeasible search, and labeled demo fallback. |
+| Build and Test | Execute after all units. Exercise the initial recommendation, individual course replacement, preference-only revision, unavailable required course, infeasible search, and labeled demo fallback. |
 | Operations | Skip for this course. |
 
 ### Extensions
@@ -135,7 +136,7 @@ Security Baseline and Resiliency Baseline are disabled by the recorded requireme
 
 Two Inception stages follow review of this plan. As a planning estimate, reserve one shared review block for Application Design and one for Units Generation before November 24, with time to resolve questions and check repository access before submitting. The team will confirm meeting times and the Canvas submitter. Final-project construction and the integrated demo are due December 16.
 
-- **Workflow Planning gate.** Confirm that the sequence, required artifacts, and stop point match the course scope. The team may request modifications or propose adding a skipped stage where justified.
+- **Workflow Planning gate.** Confirm the revised recommendation and editing behavior, stage sequence, required artifacts, and milestone stop point. The team may request modifications or propose adding a skipped stage where justified.
 - **Application Design gate.** Confirm that the defined component and service interfaces support the approved feature set and exception paths. Verify consistency with source provenance, local data handling, and deterministic feasibility requirements.
 - **Units Generation gate.** Confirm that the units have clear deliverables and dependencies and that all 13 approved stories map to a unit or explicitly shared integration check. Record team approval, then stop before Construction.
 - **Midterm release.** Confirm the two inputs, all five required Inception outputs, audit and state are on GitHub. Verify that the repository opens without sign-in. The designated team member submits the repository URL on Canvas.

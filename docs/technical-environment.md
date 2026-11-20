@@ -1,6 +1,6 @@
 # Technical Environment Document — CourseCompass
 
-**Status:** Team-approved input baseline at revision e45ec09.
+**Status:** Original baseline approved at e45ec09. The timetable interaction revision is ready for review with Workflow Planning.
 **AI-DLC:** AWS AI-DLC v1.0.1, using OpenAI Codex with versioned rules.  
 **Deployment:** Local-only web application for course demo; hosted LLM API is allowed.
 **Local data:** Only the current user’s explicitly saved preferences inform future recommendations. Completed-course identifiers are confirmed by the user.
@@ -20,7 +20,7 @@
 
 | Component | Planned technology | Purpose |
 | --- | --- | --- |
-| Web UI | Streamlit | Chat, preference sliders, clickable timetable and course-detail sidebar cards (UI implementation to be validated during Construction) |
+| Web UI | Streamlit | Chat, preference controls, a prefilled timetable, individual alternative cards, and a course-detail panel. Validate drag and click interaction support during design and Construction. |
 | Local API | FastAPI + Uvicorn | Typed endpoints for planning and preference updates |
 | Data validation | Pydantic v2 | Validate LLM output and normalized Cornell records |
 | Cornell retrieval | `httpx` | HTTP client with timeouts/retries and user-agent |
@@ -48,7 +48,7 @@ src/coursecompass/
   data/            # Cornell adapter, normalizer, SQLite cache, fixture loader
   domain/          # course, section, preferences, schedule models
   scoring/         # relevance and user-weight normalization
-  optimizer/       # CP-SAT constraints and diverse schedule generation
+  optimizer/       # CP-SAT constraints, recommendation, and swap validation
   security/        # input, prompt and provenance guards
   ui/              # Streamlit app
 tests/            # unit, integration, and synthetic scheduling tests
@@ -64,6 +64,8 @@ Actual Python package files will be created during **Construction**, not before 
 ## 5. Architecture and Boundaries
 
 **Request path:** Streamlit → FastAPI → validated conversation preference profile → Cornell adapter/cache → course candidate scoring → OR-Tools scheduler → structured plan response → Streamlit. The LLM may call only exposed tools (`search_courses`, `get_course_details`, `update_preferences`, `optimize_schedule`) with validated arguments. The optimizer, not the LLM, is the source of truth for feasibility.
+
+The response carries one recommended timetable when a feasible result is available, plus individual alternative courses. A course edit previews the affected section packages and checks the resulting timetable before an explicit commit. The click action supports the same edit workflow as dragging.
 
 **Primary internal entities:** `Course` (id, subject, title, credits, instructor, official source); `SectionPackage` (all required meeting components, times); `StudentProfile` (term, credits, mandatory/excluded courses, time blocks, self-reported eligibility, normalized weights); `Evidence` (source URL/type/date/coverage/text); `Schedule` (selected packages, credits, score, constraint-validation status); and `ConversationState` (confirmed constraints, optional preferences, bounded history).
 
@@ -114,7 +116,7 @@ Actual Python package files will be created during **Construction**, not before 
 | LLM agent tests | Mock client + labeled user utterances | JSON extraction, clarification, revisions retaining prior hard constraints |
 | Data adapter tests | Stored Cornell-style fixtures | Handle field omissions, multiple section components, stale source data |
 | Safety tests | pytest | Reject malicious tool names, oversize input, injection-like source instructions |
-| Manual demo | Scripted 3-case walkthrough | Initial recommendation, weight change, infeasible scenario |
+| Manual demo | Scripted walkthrough | Initial timetable with individual alternatives, confirmed and rejected swaps, conversational preference change, infeasible case |
 
 **Targets (for review):** All emitted schedules must pass supported hard-constraint checks; output schemas and claimed course facts must be checked; conversational edits must preserve unaffected constraints. Numeric coverage/accuracy and dataset-size targets from the earlier proposal are not reported as team-approved or achieved. Ruff and pytest are proposed Construction checks, not tests already run for this milestone.
 
@@ -131,7 +133,8 @@ class RecommendRequest(BaseModel):
     max_credits: int = Field(ge=1, le=25)
 
 class RecommendResponse(BaseModel):
-    schedules: list[dict]
+    recommended_schedule: dict | None = None
+    alternative_courses: list[dict] = Field(default_factory=list)
 
 @router.post("/schedules/recommend", response_model=RecommendResponse)
 def recommend(request: RecommendRequest) -> RecommendResponse:
@@ -139,7 +142,7 @@ def recommend(request: RecommendRequest) -> RecommendResponse:
         from fastapi import HTTPException
         raise HTTPException(status_code=422, detail="Invalid credit interval")
     # Replace with optimizer service during Construction.
-    return RecommendResponse(schedules=[])
+    return RecommendResponse()
 ```
 
 ## 11. Example Code — Typical Deterministic Function

@@ -1,8 +1,8 @@
 # CourseCompass Personas
 
-**Status:** Approved. Reviewed revision: cd3ebd5.
+**Status:** Original personas approved at cd3ebd5. The timetable interaction revision is ready for review with Workflow Planning.
 
-**Basis:** [Vision](../../../docs/vision.md), [approved requirements](../requirements/requirements.md), and [user stories](stories.md).
+**Basis:** [Vision](../../../docs/vision.md), [requirements](../requirements/requirements.md), and [user stories](stories.md).
 
 These are illustrative roles based on the agreed planning goals. A Cornell student may fit more than one role, regardless of their major or degree program.
 
@@ -20,7 +20,7 @@ These are illustrative roles based on the agreed planning goals. A Cornell stude
 - **Goal:** Explore an unfamiliar discipline without making the semester unmanageable.
 - **Context:** Compares electives across Cornell subjects that have offerings for the selected term. Has a preferred weekly study budget and values schedule convenience.
 - **Challenge:** Official descriptions give useful starting information, while workload estimates or reviews may be sparse, subjective or unavailable.
-- **Success:** The student can adjust preferences, compare options that fit confirmed restrictions, and inspect the evidence behind a course from the weekly timetable.
+- **Success:** The student can start with a recommended timetable, inspect the evidence for an individual elective, and try a change that preserves confirmed restrictions.
 - **Example:** “I would like a policy or design elective that fits around my other classes. I have about eight hours a week for study outside class.”
 - **Stories:** US-01, US-02, US-03, US-04, US-05, US-06, US-07, US-08, US-09, US-10, US-12.
 

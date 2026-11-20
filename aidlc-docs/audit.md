@@ -339,3 +339,37 @@ No new user input; earlier discussion and installed stage rules applied.
 **Context**: Awaiting approval of the execution plan before Application Design.
 
 ---
+
+## Workflow Planning — Timetable Interaction Feedback
+**Timestamp**: 2026-11-20T06:44:09Z (recorded during the revision)
+
+**User Input Summary**: The team representative first described a conversation that ends with a confirmed planning profile and opens a visual workspace with candidate courses, a weekly timetable, and course details. The proposal included clickable and draggable course cards, muted conflict indicators, a replacement confirmation, official course details, and attributed or qualified ratings and workload estimates.
+
+**AI Response / Action**: Identified the difference between the prior automatic timetable requirement and the proposed editable workspace. Asked whether automatic generation should remain in the MVP.
+
+**User Follow-up**:
+
+~~~text
+Ah, 我觉得呢就是推荐课程和这个手动排课它并不是特别冲突。就是我们在这个web界面它显示出来的时候，它可以在课程表中包含一套agent的 cards根据用户需求他最为推荐的一套课程组合。它已经可视化到了课程当中，但是右侧它还包含了一些它第二这个tier 2的一个课程推荐的相应的一些课程，然后用户可以自己的根据自身的一些理解跟需求进行一定程度上的调整。我是这么想的。你觉得怎么样？
+~~~
+
+**AI Response / Action**: Proposed one prefilled recommendation, individual alternatives and a preview and confirmation flow that preserves pinned courses and other confirmed constraints.
+
+---
+
+## Workflow Planning — Timetable Interaction Revision and Review Request
+**Timestamp**: 2026-11-20T06:44:09Z
+
+**User Input**:
+
+~~~text
+嗯他不一定是两组吧，就是首先你可以推荐一组你最推荐的一组，这个课程组合。然后其他的推荐课程的话就是可能可以有额外的几个课程都很推荐，然后这个用户他可以根据他自身需求去替换。他其他的并不一定会完全的构成第二组这样的一个情况。它只是一些额外的推荐课程，用户可以自己的去尝试替换。大概这样的。然后我觉得没有问题的话，我们可以让你继续推进完成这个 midterm milestone
+~~~
+
+**AI Response / Action**: Recorded a single prefilled timetable plus individually recommended alternative courses as the revised product scope. Updated the README, both input documents, requirements (primarily F5, F6, FR-06 and FR-08), user stories and personas, and execution plan. The alternatives can overlap each other, since each is evaluated as a possible edit to the active timetable. Documented drag and click entry points, conflict cues, cancellation, deterministic validation after a proposed edit, explicit confirmation and protection of pinned courses. Historical approvals still refer to their reviewed revisions. Application Design and Units Generation remain in the milestone sequence, with the stop point after Units approval.
+
+**Approval prompt**: 请审阅更新后的需求、用户故事和执行计划。可直接提出修改，或回复「批准更新后的 Workflow Planning」进入 Application Design。
+
+**Context**: The product direction is confirmed in chat. The revised documents and execution plan are presented for review before Application Design.
+
+---

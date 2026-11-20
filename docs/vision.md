@@ -3,17 +3,17 @@
 **Project type:** New, local-first LLM-integrated web application  
 **Audience:** Cornell students across majors and degree programs who are planning a semester\
 **Planning horizon:** Inception by November 24, 2026; functional MVP by December 16, 2026
-**Status:** Team-approved input baseline at revision e45ec09.
+**Status:** Original baseline approved at e45ec09. The timetable interaction revision is ready for review with Workflow Planning.
 
 ## 1. Executive Summary
 
-CourseCompass is a conversational course-planning assistant that recommends **combinations of Cornell classes**, not just isolated courses. Students describe academic constraints, intended career or research direction, workload tolerance, scheduling preferences, and instructor/course quality priorities. An LLM turns those preferences into a transparent, editable profile and researches available course information, while a deterministic optimizer assembles feasible schedules and explains their trade-offs. The requested MVP retains F1–F8 and targets all data-accessible published Cornell semesters and departments/subjects. Each recommendation uses one selected published term with accessible roster data. Historical offerings can provide context. Outputs contain up to three feasible options.
+CourseCompass is a conversational course-planning assistant for Cornell students. Students describe academic constraints, intended career or research direction, workload tolerance, scheduling preferences, and instructor or course quality priorities. An LLM turns those preferences into an editable profile and asks the student to confirm it. A deterministic optimizer selects one recommended feasible timetable for the chosen term. The web view opens with that timetable filled in and shows additional individual courses that the student can try adding or swapping. The MVP retains F1–F8 and targets Cornell terms and subjects with accessible roster data. Historical offerings can provide context.
 
 ## 2. Problem Statement
 
 A student selecting courses must jointly consider credits, meeting times, prerequisites, degree progress, topic fit, instructor experience, assessment style, workload, and individual schedules. Cornell's catalog and official program pages provide published degree and program requirements. The Cornell Class Roster provides course descriptions and term-specific section details. Qualitative information can be scattered across department sites and student discussions. Optimizing courses one at a time can produce an infeasible or unbalanced schedule once the student combines them.
 
-CourseCompass aims to reduce manual comparison and make trade-offs explicit. The user should be able to explain a goal in ordinary language, inspect or change the criteria inferred by the LLM, and receive *feasible semester combinations* with explanations and source references. It is a decision-support tool, not an official academic advisor or degree-certification service.
+CourseCompass aims to reduce manual comparison and make trade-offs explicit. The user should be able to explain a goal in ordinary language, inspect or change the criteria inferred by the LLM, and start with a feasible semester timetable and evaluate individual course changes using explanations and source references. It is a decision-support tool, not an official academic advisor or degree-certification service.
 
 ## 3. Target Users and Primary Jobs
 
@@ -51,9 +51,9 @@ In a mature product, CourseCompass could support multiple universities and terms
 | F2 | Cornell semester course ingestion | Query published Cornell course and section data for one selected published term and all data-accessible Cornell subjects; retain source URLs, retrieval time, credits, title, instructor, and meeting information where available. |
 | F3 | Course information and evidence cards | Show official facts and, when available, permitted curated review evidence, with source attribution and uncertainty labeling. |
 | F4 | Editable weighted preference profile | Expose six preference weights, allow user adjustments, normalize weights, and distinguish soft preferences from hard constraints. |
-| F5 | Feasibility and schedule optimization | Produce up to three high-scoring, distinct schedules satisfying supported credit/meeting/exclusion constraints; report no-solution cases and actionable relaxations. |
-| F6 | Timetable and comparison view | Display a weekly grid, schedule alternatives, credits and trade-offs. Each course is clickable and opens sidebar cards for title, description, professor information, reviews, difficulty/workload evidence, sources and missing-data labels. |
-| F7 | Conversational revision | Update one or more preferences and recompute schedules while preserving other hard constraints. |
+| F5 | Feasibility and schedule optimization | Select one recommended feasible schedule for the confirmed profile and validate proposed course changes against the same credit, meeting, and eligibility rules. Report no-solution cases and actionable adjustments. |
+| F6 | Editable timetable and course detail | Prefill one weekly grid and show a side panel of individual course recommendations. Support drag and click actions, replacement previews, conflict warnings, and explicit confirmation of swaps. Clicking any course opens its title, description, instructor, recommendation reason, available reviews and workload estimates, and sources. |
+| F7 | Conversational revision | Update one or more preferences and recompute a recommendation while preserving other hard constraints. |
 | F8 | Local demo/test fixtures | Support a stable curated snapshot or fixture when Cornell API or model provider is temporarily unavailable; label demo data visibly. |
 
 **Scope boundaries:** Ask the user when prerequisite eligibility is unclear. Identify unavailable pinned courses, explain no-solution cases and never silently relax hard constraints. No promise to infer all prerequisites from free-text descriptions. The system cannot guarantee seating or enrollment. No external reviews are required for the core recommendation path.
@@ -81,6 +81,7 @@ Use [Cornell Programs of Study and Graduate Fields](https://catalog.cornell.edu/
 | Hard-constraint validity | Property and fixture tests over generated recommendations | 100% of emitted plans satisfy implemented hard constraints |
 | Optimizer correctness | Compare solver with exhaustive enumeration on small instances | Match optimum for small seeded cases under the documented objective |
 | Preference extraction quality | Labeled requests with explicit expected fields | Correct schema and user-confirmed constraints; numerical dataset/accuracy targets remain proposals for review |
+| Manual course swaps | Fixture with a compatible replacement, an overlap, and a conflict with a pinned course | Only confirmed feasible swaps change the timetable |
 | Conversational revisions | Follow-up scenarios with expected changes | Apply the requested update and preserve all unaffected hard constraints |
 | Provenance | Audit displayed official course facts | All externally-derived facts carry a source or explicit unavailable flag |
 | Demonstrability | Offline fixtures and documented local startup | End-to-end scripted demo on a team laptop |
@@ -90,10 +91,10 @@ Use [Cornell Programs of Study and Graduate Fields](https://catalog.cornell.edu/
 1. Student selects a supported Cornell semester and says: “I need 12–15 credits, prefer theoretical CS and ORIE, and want Fridays free.”
 2. Agent extracts 12–15 credits, topic priorities, and a Friday constraint, then asks whether Fridays free is mandatory.
 3. Student marks Friday as mandatory, reviews six weights, and confirms self-reported eligibility.
-4. Research service loads available offerings, and optimizer finds up to three feasible combinations.
-5. UI displays weekly timetables and explains relevance, evidence quality, workload uncertainty, and trade-offs.
-6. Student says: “Keep my required course but reduce the workload.” The system updates soft preferences, preserves hard constraints, and recomputes.
-7. If no valid schedule exists, it explains which constraints block feasibility and *offers* changes instead of silently violating them.
+4. After the student confirms the profile, the research service loads available offerings and the optimizer selects one feasible recommended timetable.
+5. The week opens with the recommended courses scheduled. The side panel lists individual alternatives. The student selects a course in either area to inspect its details and available evidence.
+6. The student drags an alternative onto the timetable or clicks the replacement action. The app previews the affected courses, meetings, and credits, then applies a valid change only after confirmation.
+7. The student says “Keep my required course but reduce the workload.” The system updates the soft preference and preserves confirmed hard constraints. When no timetable can be verified, it explains the reason and offers user-controlled adjustments.
 
 ## 11. Risks and Mitigations
 
@@ -114,5 +115,5 @@ Q1–Q10 are recorded in the formal requirements question file. Remaining design
 - Validate the Cornell roster’s term and subject coverage and identify which lecture, discussion, and lab combinations have enough data to verify feasibility.
 - Define which prerequisite and repeat-enrollment rules can be checked using official data and user-confirmed completed-course identifiers.
 - Validate the editable default weights and workload scoring against representative scheduling examples.
-- Confirm extraction and calendar acceptance scenarios, including unavailable required courses and infeasible schedules.
+- Confirm extraction and calendar acceptance scenarios, including course swaps, unavailable required courses, and infeasible schedules.
 - Identify the API budget owner and spending limit before the first paid call in Construction.
