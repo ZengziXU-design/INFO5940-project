@@ -401,3 +401,29 @@ Ah, 我觉得呢就是推荐课程和这个手动排课它并不是特别冲突�
 **Context**: Waiting for the design answers before generating the Application Design artifacts.
 
 ---
+
+## Application Design — Design Answers and Validation
+**Timestamp**: 2026-11-20T06:53:46Z
+
+**User Input**:
+
+~~~text
+**`Q1=A，Q2=A，Q3=A`**
+~~~
+
+**AI Response / Action**: Recorded and validated the three A choices in the Application Design plan. The MVP previews one incoming course and at most one outgoing course in a manual edit. A conversational soft-preference update leaves the active timetable in place until acceptance of the new proposal. FastAPI owns the revisioned in-memory session. The answers are consistent and require no clarification.
+
+---
+
+## Application Design — Artifact Review Request
+**Timestamp**: 2026-11-20T06:53:46Z
+
+**User Input**: No new input beyond the preceding design answers.
+
+**AI Response / Action**: Generated the consolidated application design, components, component methods, services, and component dependencies. Verified coverage of F1–F8, FR-01–FR-10, NFR-01–NFR-06, and US-01–US-13. Validated document links, diagram structure, and edit transitions for cancellation, stale confirmation, and valid commit. The docs include pinned-course protection, provider provenance, unavailable evidence, clarification and no-result outcomes, and the labeled local demo path. Security and Resiliency Baseline extensions remain disabled. PBT-02, PBT-03, PBT-07, PBT-08 and PBT-09 are N/A at this stage and carry forward in Partial mode.
+
+**Approval prompt**: 请审阅 Application Design 的总览和配套文档。可以提出修改，或回复「批准 Application Design」进入 Units Generation。
+
+**Context**: Awaiting explicit approval of the Application Design artifacts before Units Generation. Construction remains outside this milestone.
+
+---

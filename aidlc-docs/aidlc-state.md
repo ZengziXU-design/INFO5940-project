@@ -4,7 +4,7 @@
 - Project: CourseCompass, INFO 5940 Team 15
 - Project Type: Greenfield
 - Start Date: 2026-11-19T19:02:28Z
-- Current Stage: INCEPTION — Application Design (awaiting answers to design questions)
+- Current Stage: INCEPTION — Application Design (awaiting review of design artifacts)
 - AI-DLC version: 1.0.1
 - Base commit after requested pull: ba84f141a04f46003ff1725993ce8e9f71b1dcf5
 - Milestone: 2026-11-24; complete Units Generation and stop before Construction
@@ -24,7 +24,7 @@
 - [x] Requirements Analysis — team confirmed the inputs and approved the requirements at 2026-11-20T05:29:59Z.
 - [x] User Stories — stories and personas approved at 2026-11-20T06:23:43Z.
 - [x] Workflow Planning — revised execution plan and timetable interaction amendment approved at 2026-11-20T06:48:14Z.
-- [ ] Application Design — plan and questions prepared, awaiting team answers.
+- [ ] Application Design — design artifacts generated, awaiting explicit team approval.
 - [ ] Units Generation — not started; required for the course.
 - [ ] Construction — not started; outside this milestone.
 - [ ] Operations — not required; not started.
@@ -61,8 +61,8 @@
 ## Application Design Progress
 - [x] Reload the approved execution plan, requirements, stories, personas and technical environment.
 - [x] Prepare the Application Design plan and three focused questions.
-- [ ] Collect and validate the team answers.
-- [ ] Generate and present the Application Design artifacts.
+- [x] Collect and validate the team answers.
+- [x] Generate and present the Application Design artifacts.
 - [ ] Obtain explicit approval of Application Design before starting Units Generation.
 
 ## Extension Configuration
@@ -80,4 +80,4 @@ The full PBT extension rule was read for Partial mode. PBT-02, PBT-03, PBT-07, P
 - Team-authored inputs remain in docs/.
 
 ## Current Status and Resume
-Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. The Requirements Analysis and User Stories baselines and the timetable interaction amendment are approved. Read inception/plans/application-design-plan.md and await answers to the three design questions. Validate the answers before generating the Application Design artifacts for review. The plan includes Application Design and Units Generation and stops before Construction. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.
+Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. The Requirements Analysis and User Stories baselines and the timetable interaction amendment are approved. The three design answers are recorded in inception/plans/application-design-plan.md. Review inception/application-design/application-design.md and its four supporting documents. Wait for explicit approval of Application Design before starting Units Generation. The plan includes Application Design and Units Generation and stops before Construction. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.

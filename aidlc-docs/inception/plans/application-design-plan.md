@@ -1,6 +1,6 @@
 # CourseCompass Application Design Plan
 
-**Status:** Awaiting answers to three design questions.
+**Status:** Answers validated. Design artifacts generated and ready for team review.
 
 **Basis:** [Approved execution plan](execution-plan.md), [requirements](../requirements/requirements.md), [user stories](../user-stories/stories.md), [personas](../user-stories/personas.md), and the [technical environment](../../../docs/technical-environment.md), reviewed at f36a8ed.
 
@@ -26,7 +26,7 @@ B) Let one candidate replace several conflicting electives in a single action wh
 
 C) Other (please describe after the answer tag).
 
-[Answer]:
+[Answer]: A
 
 ## Question 2 — Keep or replace a hand-edited timetable after a chat update
 
@@ -38,7 +38,7 @@ B) Replace the active timetable as soon as a newly computed recommendation passe
 
 C) Other (please describe after the answer tag).
 
-[Answer]:
+[Answer]: A
 
 ## Question 3 — Owner of the current plan and pending preview
 
@@ -50,21 +50,26 @@ B) Keep the working state in the Streamlit session. Send the current plan, confi
 
 C) Other (please describe after the answer tag).
 
-[Answer]:
+[Answer]: A
+
+## Answer analysis
+
+Q1, Q2 and Q3 all select A. These choices are compatible. Both a manual edit and a chat recommendation use a versioned proposal and explicit confirmation. The local service owns the revision and can protect the active plan. Q2 applies to soft preferences. Confirmed hard-constraint changes always revalidate the active plan. No clarification is required.
 
 ## Execution checklist
 
 - [x] Reload the approved execution plan, requirements, stories, personas, input documents, and workflow rules.
 - [x] Identify component, method contract, service orchestration, dependency and interaction decisions.
 - [x] Prepare focused questions about changes that affect both the UI and the service.
-- [ ] Collect and validate the answers, and resolve any ambiguity.
-- [ ] Produce `../application-design/components.md` with component purposes, responsibilities, and interface boundaries.
-- [ ] Produce `../application-design/component-methods.md` with typed method contracts, validation responsibilities, and outcomes.
-- [ ] Produce `../application-design/services.md` with the intake, initial recommendation, swap, conversational revision, evidence and fallback flows.
-- [ ] Produce `../application-design/component-dependency.md` with direction of dependencies, a matrix, and validated data-flow diagrams with text alternatives.
-- [ ] Produce `../application-design/application-design.md` as the consolidated design with requirement and story traceability.
-- [ ] Validate consistency against F1–F8, FR-01–FR-10 and US-01–US-13. Check preview cancellation, pinned courses, stale revisions, an infeasible result, missing evidence and the labeled model or roster fallback.
-- [ ] Present the artifacts and record the team's Application Design approval before Units Generation.
+- [x] Collect and validate the answers, and resolve any ambiguity.
+- [x] Produce `../application-design/components.md` with component purposes, responsibilities, and interface boundaries.
+- [x] Produce `../application-design/component-methods.md` with typed method contracts, validation responsibilities, and outcomes.
+- [x] Produce `../application-design/services.md` with the intake, initial recommendation, swap, conversational revision, evidence and fallback flows.
+- [x] Produce `../application-design/component-dependency.md` with direction of dependencies, a matrix, and validated data-flow diagrams with text alternatives.
+- [x] Produce `../application-design/application-design.md` as the consolidated design with requirement and story traceability.
+- [x] Validate consistency against F1–F8, FR-01–FR-10 and US-01–US-13. Check preview cancellation, pinned courses, stale revisions, an infeasible result, missing evidence and the labeled model or roster fallback.
+- [x] Present the artifacts for team review.
+- [ ] Record explicit Application Design approval before Units Generation.
 
 ## Inception boundary
 
