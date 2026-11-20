@@ -1,6 +1,6 @@
 # CourseCompass User Stories Generation Plan
 
-**Status:** Answers validated. Awaiting team approval of this plan.
+**Status:** Plan approved. Stories and personas generated for team review.
 
 **Inputs:** [Approved requirements](../requirements/requirements.md), [requirements answers](../requirements/requirement-verification-questions.md), [Vision](../../../docs/vision.md), and [assessment](user-stories-assessment.md).
 
@@ -52,8 +52,9 @@ C) Other (please specify).
 - [x] Review the approved requirements, question answers, and Vision personas.
 - [x] Define the approach, story options, and deliverables.
 - [x] Collect and validate both A answers. The choices are consistent and require no clarification.
-- [ ] Obtain explicit approval of the story generation plan.
-- [ ] Create `aidlc-docs/inception/user-stories/personas.md` with goals, constraints, scenarios, and story references.
-- [ ] Create `aidlc-docs/inception/user-stories/stories.md` using the approved organization and breakdown. Include acceptance criteria and persona and requirement mapping.
-- [ ] Verify coverage against F1–F8 and FR-01–FR-10. Check each story for INVEST qualities (independent, negotiable, valuable, estimable, small, testable) and for observable acceptance criteria.
-- [ ] Present both artifacts and record the team's approval or requested changes.
+- [x] Obtain explicit approval of the story generation plan.
+- [x] Create `aidlc-docs/inception/user-stories/personas.md` with goals, constraints, scenarios, and story references.
+- [x] Create `aidlc-docs/inception/user-stories/stories.md` using the approved organization and breakdown. Include acceptance criteria and persona and requirement mapping.
+- [x] Verify coverage against F1–F8 and FR-01–FR-10. Check each story for INVEST qualities (independent, negotiable, valuable, estimable, small, testable) and for observable acceptance criteria.
+- [x] Present both artifacts for review.
+- [ ] Record the team's approval or requested changes.
