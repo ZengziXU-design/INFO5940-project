@@ -18,7 +18,7 @@
 
 ## Project Overview, Problem, and Why an LLM
 
-**Input review status:** The draft incorporates the recorded clarification answers. The team’s review of the revised input documents is pending.
+**Input review status:** The team approved the revised input documents and Requirements Analysis at revision e45ec09.
 
 Choosing a Cornell semester schedule requires more than finding interesting classes. Students must satisfy credit and degree constraints, avoid overlapping meeting times, assess prerequisite eligibility, and consider workload, instructor experience, subject interests, and future goals. Cornell's official program pages and catalog list published degree requirements. The Class Roster provides course descriptions and term-specific offerings. Syllabi, instructor pages, and student discussions can provide additional context. Students currently need to reconcile those sources manually while making trade-offs across an *entire combination* of courses. CourseCompass is a local web application that helps Cornell students across majors and degree programs explore course options, express their preferences conversationally, and compare feasible semester schedules. Students can consult their official program requirements and confirm which courses or constraints to include in their plan.
 

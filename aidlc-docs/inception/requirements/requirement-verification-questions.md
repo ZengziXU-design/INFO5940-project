@@ -1,6 +1,6 @@
 # CourseCompass — Requirements Verification Questions
 
-**状态：10 项答复已记录。需求草案已生成，等待团队审阅。**
+**状态：10 项答复已记录。团队已确认输入文档并批准 Requirements Analysis。**
 
 本文件属于 AI-DLC 正式需求澄清，不是额外的会前讨论提纲。依据用户转述的讨论，F1–F8、可调整的六类偏好、最低学分/无时间冲突、未知先修时询问、无解解释，以及可点击课程表和侧栏详情已记录，不重复询问这些已给出的方向。
 
@@ -156,4 +156,4 @@ X) 其他（请在 [Answer]: 后说明）。
 
 ## 后续关口
 
-10 项选择已通过聊天收到并核对。团队可一起审阅更新后的 Vision、Technical Environment 和 [需求草案](requirements.md)。输入文档的一致意见与 Requirements Analysis 的批准需要明确记录。
+10 项选择已通过聊天收到并核对。团队已确认 Vision 和 Technical Environment，并批准[需求文档](requirements.md)。批准已写入审计记录，下一阶段为 User Stories。

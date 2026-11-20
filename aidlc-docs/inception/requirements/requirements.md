@@ -1,6 +1,6 @@
 # CourseCompass Requirements
 
-- **Status:** Draft for team review
+- **Status:** Approved by the team. Reviewed revision: e45ec09.
 - **Phase:** AI-DLC v1.0.1 Inception, Requirements Analysis
 - **Baseline:** [Vision](../../../docs/vision.md), [Technical Environment](../../../docs/technical-environment.md), and [answered requirements questions](requirement-verification-questions.md)
 

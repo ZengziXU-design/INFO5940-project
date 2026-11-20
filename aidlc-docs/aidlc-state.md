@@ -4,7 +4,7 @@
 - Project: CourseCompass, INFO 5940 Team 15
 - Project Type: Greenfield
 - Start Date: 2026-11-19T19:02:28Z
-- Current Stage: INCEPTION — Requirements Analysis (requirements draft ready, awaiting team review)
+- Current Stage: INCEPTION — User Stories (planning questions ready)
 - AI-DLC version: 1.0.1
 - Base commit after requested pull: ba84f141a04f46003ff1725993ce8e9f71b1dcf5
 - Milestone: 2026-11-24; complete Units Generation and stop before Construction
@@ -21,8 +21,8 @@
 ## Stage Progress
 - [x] Workspace Detection — completed; no approval gate required.
 - [x] Reverse Engineering — skipped with reason: no existing application code.
-- [ ] Requirements Analysis — draft ready, awaiting team agreement on the inputs and approval of Requirements Analysis.
-- [ ] User Stories — not started; required for the course.
+- [x] Requirements Analysis — team confirmed the inputs and approved the requirements at 2026-11-20T05:29:59Z.
+- [ ] User Stories — assessment and generation plan ready, awaiting team answers.
 - [ ] Workflow Planning — not started; required for the course.
 - [ ] Application Design — not started; required for the course.
 - [ ] Units Generation — not started; required for the course.
@@ -38,10 +38,18 @@
 - [x] Create requirement-verification-questions.md with 10 questions.
 - [x] Receive and validate Q1–Q10. Record the interpretation of Q6 and its source-access evidence.
 - [x] Synchronize README, Vision and Technical Environment with the answers and the selected PBT mode.
-- [ ] Obtain team review and agreement on the revised input baseline.
+- [x] Obtain team review and agreement on the revised input baseline.
 - [x] Generate requirements.md for review from the answered questions and current input documents.
 - [x] Present requirements.md and the revised input documents for review.
-- [ ] Record explicit approval of Requirements Analysis after team review.
+- [x] Record explicit approval of Requirements Analysis after team review.
+
+## User Stories Progress
+- [x] Determine that the User Stories stage is required.
+- [x] Prepare plans/user-stories-assessment.md and plans/story-generation-plan.md with two focused questions.
+- [ ] Collect and validate both team answers.
+- [ ] Obtain explicit approval of the story generation plan.
+- [ ] Generate stories.md and personas.md.
+- [ ] Obtain team approval of the generated stories and personas.
 
 ## Extension Configuration
 | Extension | Enabled | Decided At |
@@ -58,4 +66,4 @@ The full PBT extension rule was read for Partial mode. PBT-02, PBT-03, PBT-07, P
 - Team-authored inputs remain in docs/.
 
 ## Current Status and Resume
-Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 are recorded. Review the revised Vision and Technical Environment and the Requirements Analysis draft at inception/requirements/requirements.md. Wait for team agreement on the inputs and explicit approval of the requirements before starting User Stories. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.
+Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. Read inception/plans/story-generation-plan.md. Continue when the two planning questions have been answered and validated. Present the refined plan for approval before generating stories and personas. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.

@@ -1,6 +1,6 @@
 # Technical Environment Document — CourseCompass
 
-**Status:** Planned stack reflects the recorded clarifications. Team review of the revised input baseline is pending.
+**Status:** Team-approved input baseline at revision e45ec09.
 **AI-DLC:** AWS AI-DLC v1.0.1, using OpenAI Codex with versioned rules.  
 **Deployment:** Local-only web application for course demo; hosted LLM API is allowed.
 **Local data:** Only the current user’s explicitly saved preferences inform future recommendations. Completed-course identifiers are confirmed by the user.
