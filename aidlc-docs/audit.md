@@ -373,3 +373,31 @@ Ah, 我觉得呢就是推荐课程和这个手动排课它并不是特别冲突�
 **Context**: The product direction is confirmed in chat. The revised documents and execution plan are presented for review before Application Design.
 
 ---
+
+## Workflow Planning — Revised Plan and Timetable Amendment Approval
+**Timestamp**: 2026-11-20T06:48:14Z
+
+**User Input**:
+
+~~~text
+**批准更新后的 Workflow Planning**
+~~~
+
+**AI Response / Action**: Recorded explicit approval of the revised execution plan and the associated timetable interaction amendments at revision f36a8ed. Completed Workflow Planning and loaded the approved documents as the basis for Application Design.
+
+**Context**: The approved result remains one prefilled validated timetable with separately recommended individual course alternatives.
+
+---
+
+## Application Design — Plan and Design Questions
+**Timestamp**: 2026-11-20T06:48:14Z
+
+**User Input**: No new input beyond the preceding approval.
+
+**AI Response / Action**: Prepared inception/plans/application-design-plan.md, defining the high-level design scope and all five v1.0.1 Application Design deliverables. Presented three decisions on the replacement scope, how conversational recalculation affects manual edits, and ownership of local working state. Both drag and click entry points use the same validation workflow. The Security and Resiliency extensions remain disabled. Partial PBT is carried forward to its applicable Construction stages.
+
+**Questions prompt**: 请审阅 Application Design 计划中的三个设计问题，回复 Q1=A/B/C，Q2=A/B/C，Q3=A/B/C。选 C 时请说明你希望的做法。
+
+**Context**: Waiting for the design answers before generating the Application Design artifacts.
+
+---

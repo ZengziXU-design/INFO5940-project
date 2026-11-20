@@ -1,6 +1,6 @@
 # CourseCompass User Stories
 
-**Status:** Original stories approved at cd3ebd5. The timetable interaction revision is ready for review with Workflow Planning.
+**Status:** Original stories approved at cd3ebd5. The timetable interaction revision was approved with Workflow Planning at f36a8ed.
 
 **Basis:** [Requirements](../requirements/requirements.md), [approved generation plan](../plans/story-generation-plan.md), and [personas](personas.md).
 

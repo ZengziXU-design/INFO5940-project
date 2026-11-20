@@ -1,6 +1,6 @@
 # CourseCompass Personas
 
-**Status:** Original personas approved at cd3ebd5. The timetable interaction revision is ready for review with Workflow Planning.
+**Status:** Original personas approved at cd3ebd5. The timetable interaction revision was approved with Workflow Planning at f36a8ed.
 
 **Basis:** [Vision](../../../docs/vision.md), [requirements](../requirements/requirements.md), and [user stories](stories.md).
 

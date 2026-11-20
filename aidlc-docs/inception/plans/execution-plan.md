@@ -1,6 +1,6 @@
 # CourseCompass Execution Plan
 
-**Status:** Revised after feedback. Ready for team review with the updated inputs, requirements, and stories.
+**Status:** Approved with the updated timetable requirements and stories. Reviewed revision: f36a8ed.
 
 **Baseline:** [Requirements](../requirements/requirements.md), [requirements decisions](../requirements/requirement-verification-questions.md), [User stories](../user-stories/stories.md), [Personas](../user-stories/personas.md), and the [technical environment](../../../docs/technical-environment.md).
 
@@ -42,7 +42,7 @@ flowchart TD
         RE["Reverse Engineering - skipped"]
         RA["Requirements Analysis - approved"]
         US["User Stories - approved"]
-        WP["Workflow Planning - review pending"]
+        WP["Workflow Planning - approved"]
         AD["Application Design - execute"]
         UG["Units Generation - execute"]
     end
@@ -99,7 +99,7 @@ flowchart TD
     linkStyle default stroke:#333,stroke-width:2px
 ```
 
-**Text alternative.** Workspace Detection is complete and Reverse Engineering was skipped. The original Requirements Analysis and User Stories were approved. Their timetable updates are included in the current review. Next, review Workflow Planning, then execute and review Application Design, then plan, generate and approve the units of work. Stop at the midterm boundary. In a later session authorized for the final project, assess the applicable Construction design stages per unit, generate each unit, then build and test the integrated MVP. Operations is skipped.
+**Text alternative.** Workspace Detection is complete and Reverse Engineering was skipped. Requirements Analysis and User Stories were approved and their timetable updates were approved with Workflow Planning. Next, execute and review Application Design, then plan, generate and approve the units of work. Stop at the midterm boundary. In a later session authorized for the final project, assess the applicable Construction design stages per unit, generate each unit, then build and test the integrated MVP. Operations is skipped.
 
 ## Stage decisions and depth
 
@@ -109,9 +109,9 @@ flowchart TD
 | --- | --- | --- |
 | Complete | Workspace Detection | Established the greenfield baseline and loaded the project workflow. |
 | Skip | Reverse Engineering | There is no existing application to reverse-engineer. |
-| Approved | Requirements Analysis | Comprehensive due to cross-major scope, section compatibility, data quality, and privacy. The original requirements were approved at e45ec09. The current review covers the revised recommendation and editing behavior. |
-| Approved | User Stories | Thirteen stories and four personas cover the student journey and recovery outcomes. The original artifacts were approved at cd3ebd5. The current review covers the revised timetable interaction. |
-| Proposed | Workflow Planning | This document records the scope, sequence, risks, and milestone gates. |
+| Approved | Requirements Analysis | Comprehensive due to cross-major scope, section compatibility, data quality, and privacy. The original requirements were approved at e45ec09. The revised recommendation and editing behavior was approved with Workflow Planning. |
+| Approved | User Stories | Thirteen stories and four personas cover the student journey and recovery outcomes. The original artifacts were approved at cd3ebd5. The revised timetable interaction was approved with Workflow Planning. |
+| Approved | Workflow Planning | This document records the scope, sequence, risks, and milestone gates. |
 | Execute | Application Design | Detailed because the local app needs new component and service contracts. Produce components.md, component-methods.md, services.md, and component-dependency.md. Check the contracts against the initial timetable, individual alternative cards, preview and confirmation of course edits, conversational revision, and failure paths. |
 | Execute | Units Generation | Detailed because UI, data access, model orchestration, and deterministic scheduling must integrate. Produce unit-of-work.md, unit-of-work-dependency.md, and unit-of-work-story-map.md. Define testable boundaries, dependencies, and integration checkpoints with coverage of every approved story. |
 
@@ -134,7 +134,7 @@ Security Baseline and Resiliency Baseline are disabled by the recorded requireme
 
 ## Estimated timeline and success criteria
 
-Two Inception stages follow review of this plan. As a planning estimate, reserve one shared review block for Application Design and one for Units Generation before November 24, with time to resolve questions and check repository access before submitting. The team will confirm meeting times and the Canvas submitter. Final-project construction and the integrated demo are due December 16.
+Two Inception stages follow approval of this plan. As a planning estimate, reserve one shared review block for Application Design and one for Units Generation before November 24, with time to resolve questions and check repository access before submitting. The team will confirm meeting times and the Canvas submitter. Final-project construction and the integrated demo are due December 16.
 
 - **Workflow Planning gate.** Confirm the revised recommendation and editing behavior, stage sequence, required artifacts, and milestone stop point. The team may request modifications or propose adding a skipped stage where justified.
 - **Application Design gate.** Confirm that the defined component and service interfaces support the approved feature set and exception paths. Verify consistency with source provenance, local data handling, and deterministic feasibility requirements.

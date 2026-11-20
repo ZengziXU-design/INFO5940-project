@@ -1,6 +1,6 @@
 # CourseCompass Requirements
 
-- **Status:** Original requirements approved at e45ec09. The timetable interaction revision is ready for review with Workflow Planning.
+- **Status:** Original requirements approved at e45ec09. The timetable interaction revision was approved with Workflow Planning at f36a8ed.
 - **Phase:** AI-DLC v1.0.1 Inception, Requirements Analysis
 - **Baseline:** [Vision](../../../docs/vision.md), [Technical Environment](../../../docs/technical-environment.md), and [answered requirements questions](requirement-verification-questions.md)
 

@@ -4,7 +4,7 @@
 - Project: CourseCompass, INFO 5940 Team 15
 - Project Type: Greenfield
 - Start Date: 2026-11-19T19:02:28Z
-- Current Stage: INCEPTION — Workflow Planning (awaiting review of the revised execution plan and affected artifacts)
+- Current Stage: INCEPTION — Application Design (awaiting answers to design questions)
 - AI-DLC version: 1.0.1
 - Base commit after requested pull: ba84f141a04f46003ff1725993ce8e9f71b1dcf5
 - Milestone: 2026-11-24; complete Units Generation and stop before Construction
@@ -23,8 +23,8 @@
 - [x] Reverse Engineering — skipped with reason: no existing application code.
 - [x] Requirements Analysis — team confirmed the inputs and approved the requirements at 2026-11-20T05:29:59Z.
 - [x] User Stories — stories and personas approved at 2026-11-20T06:23:43Z.
-- [ ] Workflow Planning — revised execution plan and timetable interaction amendment ready for review.
-- [ ] Application Design — not started; required for the course.
+- [x] Workflow Planning — revised execution plan and timetable interaction amendment approved at 2026-11-20T06:48:14Z.
+- [ ] Application Design — plan and questions prepared, awaiting team answers.
 - [ ] Units Generation — not started; required for the course.
 - [ ] Construction — not started; outside this milestone.
 - [ ] Operations — not required; not started.
@@ -56,7 +56,14 @@
 - [x] Assess scope, impacts, risks, depth and stage selection.
 - [x] Prepare and validate the execution plan and workflow visualization.
 - [x] Record the requested shift to one prefilled timetable and individual alternatives, and revise the affected Inception artifacts.
-- [ ] Obtain explicit approval of the revised execution plan and the affected artifact revisions.
+- [x] Obtain explicit approval of the revised execution plan and the affected artifact revisions.
+
+## Application Design Progress
+- [x] Reload the approved execution plan, requirements, stories, personas and technical environment.
+- [x] Prepare the Application Design plan and three focused questions.
+- [ ] Collect and validate the team answers.
+- [ ] Generate and present the Application Design artifacts.
+- [ ] Obtain explicit approval of Application Design before starting Units Generation.
 
 ## Extension Configuration
 | Extension | Enabled | Decided At |
@@ -73,4 +80,4 @@ The full PBT extension rule was read for Partial mode. PBT-02, PBT-03, PBT-07, P
 - Team-authored inputs remain in docs/.
 
 ## Current Status and Resume
-Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. The original Requirements Analysis and User Stories approvals remain recorded. Review the timetable interaction amendment and inception/plans/execution-plan.md. Wait for explicit approval of the revised materials before starting Application Design. The plan includes Application Design and Units Generation and stops before Construction. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.
+Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. The Requirements Analysis and User Stories baselines and the timetable interaction amendment are approved. Read inception/plans/application-design-plan.md and await answers to the three design questions. Validate the answers before generating the Application Design artifacts for review. The plan includes Application Design and Units Generation and stops before Construction. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.

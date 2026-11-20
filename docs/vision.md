@@ -3,7 +3,7 @@
 **Project type:** New, local-first LLM-integrated web application  
 **Audience:** Cornell students across majors and degree programs who are planning a semester\
 **Planning horizon:** Inception by November 24, 2026; functional MVP by December 16, 2026
-**Status:** Original baseline approved at e45ec09. The timetable interaction revision is ready for review with Workflow Planning.
+**Status:** Original baseline approved at e45ec09. The timetable interaction revision was approved with Workflow Planning at f36a8ed.
 
 ## 1. Executive Summary
 

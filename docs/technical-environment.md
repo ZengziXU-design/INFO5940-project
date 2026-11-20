@@ -1,6 +1,6 @@
 # Technical Environment Document — CourseCompass
 
-**Status:** Original baseline approved at e45ec09. The timetable interaction revision is ready for review with Workflow Planning.
+**Status:** Original baseline approved at e45ec09. The timetable interaction revision was approved with Workflow Planning at f36a8ed.
 **AI-DLC:** AWS AI-DLC v1.0.1, using OpenAI Codex with versioned rules.  
 **Deployment:** Local-only web application for course demo; hosted LLM API is allowed.
 **Local data:** Only the current user’s explicitly saved preferences inform future recommendations. Completed-course identifiers are confirmed by the user.
