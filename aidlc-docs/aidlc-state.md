@@ -4,7 +4,7 @@
 - Project: CourseCompass, INFO 5940 Team 15
 - Project Type: Greenfield
 - Start Date: 2026-11-19T19:02:28Z
-- Current Stage: INCEPTION — User Stories (stories and personas ready for team review)
+- Current Stage: INCEPTION — Workflow Planning (awaiting approval of the execution plan)
 - AI-DLC version: 1.0.1
 - Base commit after requested pull: ba84f141a04f46003ff1725993ce8e9f71b1dcf5
 - Milestone: 2026-11-24; complete Units Generation and stop before Construction
@@ -22,8 +22,8 @@
 - [x] Workspace Detection — completed; no approval gate required.
 - [x] Reverse Engineering — skipped with reason: no existing application code.
 - [x] Requirements Analysis — team confirmed the inputs and approved the requirements at 2026-11-20T05:29:59Z.
-- [ ] User Stories — stories and personas generated, awaiting explicit team approval.
-- [ ] Workflow Planning — not started; required for the course.
+- [x] User Stories — stories and personas approved at 2026-11-20T06:23:43Z.
+- [ ] Workflow Planning — execution plan prepared, awaiting explicit approval.
 - [ ] Application Design — not started; required for the course.
 - [ ] Units Generation — not started; required for the course.
 - [ ] Construction — not started; outside this milestone.
@@ -49,7 +49,13 @@
 - [x] Collect and validate both team answers (Q1=A, Q2=A).
 - [x] Obtain explicit approval of the story generation plan.
 - [x] Generate stories.md and personas.md.
-- [ ] Obtain team approval of the generated stories and personas.
+- [x] Obtain team approval of the generated stories and personas.
+
+## Workflow Planning Progress
+- [x] Reload the approved requirements, answers, stories and personas.
+- [x] Assess scope, impacts, risks, depth and stage selection.
+- [x] Prepare and validate the execution plan and workflow visualization.
+- [ ] Obtain explicit approval of the execution plan.
 
 ## Extension Configuration
 | Extension | Enabled | Decided At |
@@ -66,4 +72,4 @@ The full PBT extension rule was read for Partial mode. PBT-02, PBT-03, PBT-07, P
 - Team-authored inputs remain in docs/.
 
 ## Current Status and Resume
-Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. The team approved the generation plan in inception/plans/story-generation-plan.md. Review inception/user-stories/stories.md and inception/user-stories/personas.md. Wait for explicit approval of both generated artifacts before starting Workflow Planning. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.
+Read this state, audit.md, the three input documents and inception/requirements/requirement-verification-questions.md before resuming. The previous chat discussion is imported as user-reported context, not as past workflow approvals. Q1–Q10 and explicit team approval of the input documents and Requirements Analysis are recorded. User Stories is approved. Review inception/plans/execution-plan.md and wait for explicit approval before starting Application Design. The plan includes Application Design and Units Generation and stops before Construction. Do not recreate the removed team-discussion.md. After each future approval gate, reset conversation context as required by the course and resume from these files.

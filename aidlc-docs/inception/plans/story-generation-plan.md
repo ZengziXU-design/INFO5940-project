@@ -1,6 +1,6 @@
 # CourseCompass User Stories Generation Plan
 
-**Status:** Plan approved. Stories and personas generated for team review.
+**Status:** Plan completed. Stories and personas approved at revision cd3ebd5.
 
 **Inputs:** [Approved requirements](../requirements/requirements.md), [requirements answers](../requirements/requirement-verification-questions.md), [Vision](../../../docs/vision.md), and [assessment](user-stories-assessment.md).
 
@@ -57,4 +57,4 @@ C) Other (please specify).
 - [x] Create `aidlc-docs/inception/user-stories/stories.md` using the approved organization and breakdown. Include acceptance criteria and persona and requirement mapping.
 - [x] Verify coverage against F1–F8 and FR-01–FR-10. Check each story for INVEST qualities (independent, negotiable, valuable, estimable, small, testable) and for observable acceptance criteria.
 - [x] Present both artifacts for review.
-- [ ] Record the team's approval or requested changes.
+- [x] Record the team's approval or requested changes.

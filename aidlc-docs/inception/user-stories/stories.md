@@ -1,6 +1,6 @@
 # CourseCompass User Stories
 
-**Status:** Ready for team review
+**Status:** Approved. Reviewed revision: cd3ebd5.
 
 **Basis:** [Approved requirements](../requirements/requirements.md), [approved generation plan](../plans/story-generation-plan.md), and [personas](personas.md).
 

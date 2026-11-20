@@ -1,6 +1,6 @@
 # CourseCompass Personas
 
-**Status:** Ready for team review
+**Status:** Approved. Reviewed revision: cd3ebd5.
 
 **Basis:** [Vision](../../../docs/vision.md), [approved requirements](../requirements/requirements.md), and [user stories](stories.md).
 
